@@ -50,6 +50,15 @@ class HXCPP_CLASS_ATTRIBUTES Path_obj : public ::hx::Object
 		static ::String directory(::String path);
 		static ::Dynamic directory_dyn();
 
+		static ::String extension(::String path);
+		static ::Dynamic extension_dyn();
+
+		static ::String join(::Array< ::String > paths);
+		static ::Dynamic join_dyn();
+
+		static ::String normalize(::String path);
+		static ::Dynamic normalize_dyn();
+
 		static ::String addTrailingSlash(::String path);
 		static ::Dynamic addTrailingSlash_dyn();
 

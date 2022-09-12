@@ -5,9 +5,12 @@
 #include <hxcpp.h>
 #endif
 
+HX_DECLARE_CLASS2(haxe,io,Bytes)
 HX_DECLARE_CLASS2(haxe,io,Input)
+HX_DECLARE_CLASS2(haxe,io,Output)
 HX_DECLARE_CLASS2(sys,io,File)
 HX_DECLARE_CLASS2(sys,io,FileInput)
+HX_DECLARE_CLASS2(sys,io,FileOutput)
 
 namespace sys{
 namespace io{
@@ -52,8 +55,20 @@ class HXCPP_CLASS_ATTRIBUTES File_obj : public ::hx::Object
 		bool _hx_isInstanceOf(int inClassId);
 		::String __ToString() const { return HX_("File",9c,fa,94,2e); }
 
+		static  ::haxe::io::Bytes getBytes(::String path);
+		static ::Dynamic getBytes_dyn();
+
+		static void saveBytes(::String path, ::haxe::io::Bytes bytes);
+		static ::Dynamic saveBytes_dyn();
+
 		static  ::sys::io::FileInput read(::String path,::hx::Null< bool >  binary);
 		static ::Dynamic read_dyn();
+
+		static  ::sys::io::FileOutput write(::String path,::hx::Null< bool >  binary);
+		static ::Dynamic write_dyn();
+
+		static void copy(::String srcPath,::String dstPath);
+		static ::Dynamic copy_dyn();
 
 };
 

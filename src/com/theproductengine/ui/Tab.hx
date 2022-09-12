@@ -9,7 +9,7 @@ import openfl.text.TextField;
  */
 class Tab implements Cloneable<Tab>
 {
-	var textfield:TextField;
+	public var textfield:TextField;
 	
 	public static function fromTextField(textField:TextField):Tab
 	{

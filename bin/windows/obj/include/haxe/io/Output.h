@@ -5,6 +5,8 @@
 #include <hxcpp.h>
 #endif
 
+HX_DECLARE_CLASS2(haxe,io,Bytes)
+HX_DECLARE_CLASS2(haxe,io,Input)
 HX_DECLARE_CLASS2(haxe,io,Output)
 
 namespace haxe{
@@ -45,9 +47,25 @@ class HXCPP_CLASS_ATTRIBUTES Output_obj : public ::hx::Object
 		//~Output_obj();
 
 		HX_DO_RTTI_ALL;
+		::hx::Val __Field(const ::String &inString, ::hx::PropertyAccess inCallProp);
 		static void __register();
 		bool _hx_isInstanceOf(int inClassId);
 		::String __ToString() const { return HX_("Output",21,83,15,41); }
+
+		virtual void writeByte(int c);
+		::Dynamic writeByte_dyn();
+
+		virtual int writeBytes( ::haxe::io::Bytes s,int pos,int len);
+		::Dynamic writeBytes_dyn();
+
+		virtual void close();
+		::Dynamic close_dyn();
+
+		void write( ::haxe::io::Bytes s);
+		::Dynamic write_dyn();
+
+		void writeInput( ::haxe::io::Input i, ::Dynamic bufsize);
+		::Dynamic writeInput_dyn();
 
 };
 

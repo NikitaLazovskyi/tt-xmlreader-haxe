@@ -1,25 +1,28 @@
 #include <hxcpp.h>
 
-#ifndef INCLUDED_Std
-#include <Std.h>
-#endif
-#ifndef INCLUDED_StringBuf
-#include <StringBuf.h>
-#endif
 #ifndef INCLUDED_com_theproductengine_Main
 #include <com/theproductengine/Main.h>
 #endif
 #ifndef INCLUDED_com_theproductengine_builder_TabBuilder
 #include <com/theproductengine/builder/TabBuilder.h>
 #endif
-#ifndef INCLUDED_com_theproductengine_builder_TabGroup
-#include <com/theproductengine/builder/TabGroup.h>
+#ifndef INCLUDED_com_theproductengine_factory_TabGroupAbstract
+#include <com/theproductengine/factory/TabGroupAbstract.h>
 #endif
 #ifndef INCLUDED_com_theproductengine_interfaces_Cloneable
 #include <com/theproductengine/interfaces/Cloneable.h>
 #endif
+#ifndef INCLUDED_com_theproductengine_model_TabGroup
+#include <com/theproductengine/model/TabGroup.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_model_TabModel
+#include <com/theproductengine/model/TabModel.h>
+#endif
 #ifndef INCLUDED_com_theproductengine_ui_Tab
 #include <com/theproductengine/ui/Tab.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_xmlreader_XMLReader
+#include <com/theproductengine/xmlreader/XMLReader.h>
 #endif
 #ifndef INCLUDED_openfl_display_DisplayObject
 #include <openfl/display/DisplayObject.h>
@@ -58,98 +61,77 @@
 #include <openfl/text/TextFormat.h>
 #endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_1c628ec70cc67a56_16_new,"com.theproductengine.Main","new",0x0e6a8a6c,"com.theproductengine.Main.new","com/theproductengine/Main.hx",16,0x860553a4)
-HX_DEFINE_STACK_FRAME(_hx_pos_1c628ec70cc67a56_74_new,"com.theproductengine.Main","new",0x0e6a8a6c,"com.theproductengine.Main.new","com/theproductengine/Main.hx",74,0x860553a4)
-static const ::String _hx_array_data_86ea247a_3[] = {
-	HX_("Some text for \n tab",41,bd,af,8f),
-};
-static const ::String _hx_array_data_86ea247a_4[] = {
-	HX_(" \n ------------ \n -----asd--- \n asdasdasd \n kitty ipsum dolor",51,17,d1,81),
-};
-HX_LOCAL_STACK_FRAME(_hx_pos_1c628ec70cc67a56_82_changeTextOfMainTab,"com.theproductengine.Main","changeTextOfMainTab",0x0e57eb54,"com.theproductengine.Main.changeTextOfMainTab","com/theproductengine/Main.hx",82,0x860553a4)
-HX_LOCAL_STACK_FRAME(_hx_pos_1c628ec70cc67a56_88_changeColorForTabLater,"com.theproductengine.Main","changeColorForTabLater",0x0a462281,"com.theproductengine.Main.changeColorForTabLater","com/theproductengine/Main.hx",88,0x860553a4)
+HX_DEFINE_STACK_FRAME(_hx_pos_1c628ec70cc67a56_21_new,"com.theproductengine.Main","new",0x0e6a8a6c,"com.theproductengine.Main.new","com/theproductengine/Main.hx",21,0x860553a4)
+HX_DEFINE_STACK_FRAME(_hx_pos_1c628ec70cc67a56_83_new,"com.theproductengine.Main","new",0x0e6a8a6c,"com.theproductengine.Main.new","com/theproductengine/Main.hx",83,0x860553a4)
+HX_LOCAL_STACK_FRAME(_hx_pos_1c628ec70cc67a56_91_changeTextOfMainTab,"com.theproductengine.Main","changeTextOfMainTab",0x0e57eb54,"com.theproductengine.Main.changeTextOfMainTab","com/theproductengine/Main.hx",91,0x860553a4)
+HX_LOCAL_STACK_FRAME(_hx_pos_1c628ec70cc67a56_97_changeColorForTabLater,"com.theproductengine.Main","changeColorForTabLater",0x0a462281,"com.theproductengine.Main.changeColorForTabLater","com/theproductengine/Main.hx",97,0x860553a4)
 namespace com{
 namespace theproductengine{
 
 void Main_obj::__construct(){
-            	HX_GC_STACKFRAME(&_hx_pos_1c628ec70cc67a56_16_new)
-HXLINE(  29)		this->txtFrmt =  ::openfl::text::TextFormat_obj::__alloc( HX_CTX ,null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null());
-HXLINE(  28)		this->borderTab = true;
-HXLINE(  27)		this->backgroundTab = true;
-HXLINE(  26)		this->tabHeight = ((Float)40);
-HXLINE(  25)		this->tabWidth = ((Float)150);
-HXLINE(  24)		this->backgroundThemeColor = 15329769;
-HXLINE(  23)		this->backgroundTabColor = 11652587;
-HXLINE(  22)		this->clearence = ((Float)15);
-HXLINE(  32)		 ::com::theproductengine::Main _gthis = ::hx::ObjectPtr<OBJ_>(this);
-HXLINE(  33)		super::__construct();
-HXLINE(  35)		this->txtFrmt->align = 0;
-HXLINE(  36)		this->txtFrmt->size = 20;
-HXLINE(  38)		this->get_graphics()->beginFill(this->backgroundThemeColor,null());
-HXLINE(  39)		this->get_graphics()->drawRect(( (Float)(0) ),( (Float)(0) ),( (Float)(800) ),( (Float)(480) ));
-HXLINE(  40)		this->get_graphics()->endFill();
-HXLINE(  43)		 ::com::theproductengine::ui::Tab example = ::com::theproductengine::ui::Tab_obj::builder()->setBackground(this->backgroundTab)->setBackgroundColor(this->backgroundThemeColor)->setHeight(this->tabHeight)->setWidth(this->tabWidth)->setX(this->clearence)->setY(this->clearence)->setTextFormat(this->txtFrmt)->setText(HX_("Tab1",5c,dc,cf,37))->setBorder(this->borderTab)->build();
-HXLINE(  55)		 ::com::theproductengine::builder::TabGroup tabGroup =  ::com::theproductengine::builder::TabGroup_obj::__alloc( HX_CTX ,( (Float)(10) ),( (Float)(10) ),( (Float)(10) ),example,8,( (Float)(780) ),this->txtFrmt,this->backgroundTabColor);
-HXLINE(  56)		::Array< ::Dynamic> tabArray = tabGroup->getTabs();
-HXLINE(  57)		this->mainTab = tabGroup->getMainTextField();
-HXLINE(  58)		this->addChild(this->mainTab);
-HXLINE(  60)		int i = 1;
-HXLINE(  61)		int iterator_current = 0;
-HXDLIN(  61)		::Array< ::Dynamic> iterator_array = tabArray;
-HXLINE(  62)		while((iterator_current < iterator_array->length)){
-            			HX_BEGIN_LOCAL_FUNC_S2(::hx::LocalFunc,_hx_Closure_0, ::com::theproductengine::Main,_gthis, ::StringBuf,st) HXARGC(1)
+            	HX_GC_STACKFRAME(&_hx_pos_1c628ec70cc67a56_21_new)
+HXLINE(  37)		this->txtFrmt =  ::openfl::text::TextFormat_obj::__alloc( HX_CTX ,null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null());
+HXLINE(  36)		this->borderTab = true;
+HXLINE(  35)		this->backgroundTab = true;
+HXLINE(  34)		this->maxHeight = ((Float)480);
+HXLINE(  33)		this->maxWidth = ((Float)800);
+HXLINE(  32)		this->tabHeight = ((Float)40);
+HXLINE(  31)		this->tabWidth = ((Float)150);
+HXLINE(  30)		this->offsetY = ((Float)10);
+HXLINE(  29)		this->offsetX = ((Float)10);
+HXLINE(  28)		this->backgroundThemeColor = 15329769;
+HXLINE(  27)		this->backgroundTabColor = 11652587;
+HXLINE(  26)		this->clearence = ((Float)10);
+HXLINE(  42)		 ::com::theproductengine::Main _gthis = ::hx::ObjectPtr<OBJ_>(this);
+HXLINE(  43)		super::__construct();
+HXLINE(  44)		::String path = HX_("test.xml",bb,97,1c,37);
+HXLINE(  45)		 ::com::theproductengine::xmlreader::XMLReader xml =  ::com::theproductengine::xmlreader::XMLReader_obj::__alloc( HX_CTX ,path);
+HXLINE(  46)		this->tabModelsData = xml->getModels();
+HXLINE(  48)		this->txtFrmt->align = 0;
+HXLINE(  49)		this->txtFrmt->size = 20;
+HXLINE(  51)		this->get_graphics()->beginFill(this->backgroundThemeColor,null());
+HXLINE(  52)		this->get_graphics()->drawRect(( (Float)(0) ),( (Float)(0) ),this->maxWidth,this->maxHeight);
+HXLINE(  53)		this->get_graphics()->endFill();
+HXLINE(  55)		 ::com::theproductengine::ui::Tab example = ::com::theproductengine::ui::Tab_obj::builder()->setBackground(this->backgroundTab)->setBackgroundColor(this->backgroundThemeColor)->setHeight(this->tabHeight)->setWidth(this->tabWidth)->setX(this->offsetX)->setY(this->offsetY)->setTextFormat(this->txtFrmt)->setText(HX_("Tab1",5c,dc,cf,37))->setBorder(this->borderTab)->build();
+HXLINE(  67)		 ::com::theproductengine::model::TabGroup tabGroup =  ::com::theproductengine::model::TabGroup_obj::__alloc( HX_CTX ,this->offsetX,this->offsetY,this->clearence,example,this->tabModelsData->length,(this->maxWidth - (( (Float)(2) ) * this->clearence)),this->txtFrmt,this->backgroundTabColor);
+HXLINE(  68)		::Array< ::Dynamic> tabArray = tabGroup->getTabs();
+HXLINE(  69)		this->mainTab = tabGroup->getMainTextField();
+HXLINE(  70)		this->addChild(this->mainTab);
+HXLINE(  72)		int i = 1;
+HXLINE(  73)		int iteratorTabs_current = 0;
+HXDLIN(  73)		::Array< ::Dynamic> iteratorTabs_array = tabArray;
+HXLINE(  74)		int iteratorData_current = 0;
+HXDLIN(  74)		::Array< ::Dynamic> iteratorData_array = this->tabModelsData;
+HXLINE(  75)		while(true){
+            			HX_BEGIN_LOCAL_FUNC_S2(::hx::LocalFunc,_hx_Closure_0, ::com::theproductengine::Main,_gthis, ::com::theproductengine::model::TabModel,data) HXARGC(1)
             			void _hx_run( ::openfl::events::MouseEvent event){
-            				HX_GC_STACKFRAME(&_hx_pos_1c628ec70cc67a56_74_new)
-HXLINE(  74)				 ::com::theproductengine::Main _gthis1 = _gthis;
-HXDLIN(  74)				::String _hx_tmp = st->toString();
-HXDLIN(  74)				_gthis1->changeTextOfMainTab(_hx_tmp,::hx::TCast<  ::openfl::text::TextField >::cast(event->target));
+            				HX_GC_STACKFRAME(&_hx_pos_1c628ec70cc67a56_83_new)
+HXLINE(  83)				 ::com::theproductengine::Main _gthis1 = _gthis;
+HXDLIN(  83)				::String _hx_tmp = data->getTabContent();
+HXDLIN(  83)				_gthis1->changeTextOfMainTab(_hx_tmp,::hx::TCast<  ::openfl::text::TextField >::cast(event->target));
             			}
             			HX_END_LOCAL_FUNC1((void))
 
-HXLINE(  64)			iterator_current = (iterator_current + 1);
-HXDLIN(  64)			 ::com::theproductengine::ui::Tab v = iterator_array->__get((iterator_current - 1)).StaticCast<  ::com::theproductengine::ui::Tab >();
-HXLINE(  65)			 ::openfl::text::TextField textField = v->getTextField();
-HXLINE(  66)			textField->set_text((HX_("Tab",35,12,40,00) + i));
-HXLINE(  67)			 ::StringBuf st =  ::StringBuf_obj::__alloc( HX_CTX );
-HXLINE(  68)			{
-HXLINE(  68)				if (::hx::IsNotNull( st->charBuf )) {
-HXLINE(  68)					st->flush();
-            				}
-HXDLIN(  68)				if (::hx::IsNull( st->b )) {
-HXLINE(  68)					st->b = ::Array_obj< ::String >::fromData( _hx_array_data_86ea247a_3,1);
-            				}
-            				else {
-HXLINE(  68)					st->b->push(HX_("Some text for \n tab",41,bd,af,8f));
-            				}
+HXLINE(  75)			bool _hx_tmp;
+HXDLIN(  75)			if ((iteratorTabs_current < iteratorTabs_array->length)) {
+HXLINE(  75)				_hx_tmp = (iteratorData_current < iteratorData_array->length);
             			}
-HXLINE(  69)			{
-HXLINE(  69)				if (::hx::IsNotNull( st->charBuf )) {
-HXLINE(  69)					st->flush();
-            				}
-HXDLIN(  69)				if (::hx::IsNull( st->b )) {
-HXLINE(  69)					::String _hx_tmp = ::Std_obj::string(i);
-HXDLIN(  69)					st->b = ::Array_obj< ::String >::__new(1)->init(0,_hx_tmp);
-            				}
-            				else {
-HXLINE(  69)					::Array< ::String > st1 = st->b;
-HXDLIN(  69)					st1->push(::Std_obj::string(i));
-            				}
+            			else {
+HXLINE(  75)				_hx_tmp = false;
             			}
-HXLINE(  70)			{
-HXLINE(  70)				if (::hx::IsNotNull( st->charBuf )) {
-HXLINE(  70)					st->flush();
-            				}
-HXDLIN(  70)				if (::hx::IsNull( st->b )) {
-HXLINE(  70)					st->b = ::Array_obj< ::String >::fromData( _hx_array_data_86ea247a_4,1);
-            				}
-            				else {
-HXLINE(  70)					st->b->push(HX_(" \n ------------ \n -----asd--- \n asdasdasd \n kitty ipsum dolor",51,17,d1,81));
-            				}
+HXDLIN(  75)			if (!(_hx_tmp)) {
+HXLINE(  75)				goto _hx_goto_0;
             			}
-HXLINE(  72)			textField->addEventListener(HX_("click",48,7c,5e,48), ::Dynamic(new _hx_Closure_0(_gthis,st)),null(),null(),null());
-HXLINE(  76)			this->addChild(textField);
-HXLINE(  77)			i = (i + 1);
+HXLINE(  77)			iteratorData_current = (iteratorData_current + 1);
+HXDLIN(  77)			 ::com::theproductengine::model::TabModel data = iteratorData_array->__get((iteratorData_current - 1)).StaticCast<  ::com::theproductengine::model::TabModel >();
+HXLINE(  78)			iteratorTabs_current = (iteratorTabs_current + 1);
+HXDLIN(  78)			 ::openfl::text::TextField textField = iteratorTabs_array->__get((iteratorTabs_current - 1)).StaticCast<  ::com::theproductengine::ui::Tab >()->getTextField();
+HXLINE(  79)			textField->set_text(data->getTabName());
+HXLINE(  81)			textField->addEventListener(HX_("click",48,7c,5e,48), ::Dynamic(new _hx_Closure_0(_gthis,data)),null(),null(),null());
+HXLINE(  85)			this->addChild(textField);
+HXLINE(  86)			i = (i + 1);
             		}
+            		_hx_goto_0:;
             	}
 
 Dynamic Main_obj::__CreateEmpty() { return new Main_obj; }
@@ -184,22 +166,24 @@ bool Main_obj::_hx_isInstanceOf(int inClassId) {
 }
 
 void Main_obj::changeTextOfMainTab(::String text, ::openfl::text::TextField field){
-            	HX_STACKFRAME(&_hx_pos_1c628ec70cc67a56_82_changeTextOfMainTab)
-HXLINE(  83)		 ::openfl::text::TextField _hx_tmp = this->mainTab;
-HXDLIN(  83)		_hx_tmp->replaceText(0,this->mainTab->get_text().length,text);
-HXLINE(  84)		this->changeColorForTabLater(field);
+            	HX_STACKFRAME(&_hx_pos_1c628ec70cc67a56_91_changeTextOfMainTab)
+HXLINE(  92)		 ::openfl::text::TextField _hx_tmp = this->mainTab;
+HXDLIN(  92)		_hx_tmp->replaceText(0,this->mainTab->get_text().length,text);
+HXLINE(  93)		this->changeColorForTabLater(field);
             	}
 
 
 HX_DEFINE_DYNAMIC_FUNC2(Main_obj,changeTextOfMainTab,(void))
 
 void Main_obj::changeColorForTabLater( ::openfl::text::TextField tab){
-            	HX_STACKFRAME(&_hx_pos_1c628ec70cc67a56_88_changeColorForTabLater)
-HXLINE(  89)		tab->set_backgroundColor(this->backgroundTabColor);
-HXLINE(  90)		if (::hx::IsNotNull( this->previousTab )) {
-HXLINE(  92)			this->previousTab->set_backgroundColor(this->backgroundThemeColor);
+            	HX_STACKFRAME(&_hx_pos_1c628ec70cc67a56_97_changeColorForTabLater)
+HXLINE(  98)		tab->set_backgroundColor(this->backgroundTabColor);
+HXLINE(  99)		if (::hx::IsNotNull( this->previousTab )) {
+HXLINE( 101)			if (::hx::IsInstanceNotEq( this->previousTab,tab )) {
+HXLINE( 103)				this->previousTab->set_backgroundColor(this->backgroundThemeColor);
+            			}
             		}
-HXLINE(  94)		this->previousTab = tab;
+HXLINE( 106)		this->previousTab = tab;
             	}
 
 
@@ -231,11 +215,16 @@ void Main_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(clearence,"clearence");
 	HX_MARK_MEMBER_NAME(backgroundTabColor,"backgroundTabColor");
 	HX_MARK_MEMBER_NAME(backgroundThemeColor,"backgroundThemeColor");
+	HX_MARK_MEMBER_NAME(offsetX,"offsetX");
+	HX_MARK_MEMBER_NAME(offsetY,"offsetY");
 	HX_MARK_MEMBER_NAME(tabWidth,"tabWidth");
 	HX_MARK_MEMBER_NAME(tabHeight,"tabHeight");
+	HX_MARK_MEMBER_NAME(maxWidth,"maxWidth");
+	HX_MARK_MEMBER_NAME(maxHeight,"maxHeight");
 	HX_MARK_MEMBER_NAME(backgroundTab,"backgroundTab");
 	HX_MARK_MEMBER_NAME(borderTab,"borderTab");
 	HX_MARK_MEMBER_NAME(txtFrmt,"txtFrmt");
+	HX_MARK_MEMBER_NAME(tabModelsData,"tabModelsData");
 	 ::openfl::display::Sprite_obj::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
 }
@@ -247,11 +236,16 @@ void Main_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(clearence,"clearence");
 	HX_VISIT_MEMBER_NAME(backgroundTabColor,"backgroundTabColor");
 	HX_VISIT_MEMBER_NAME(backgroundThemeColor,"backgroundThemeColor");
+	HX_VISIT_MEMBER_NAME(offsetX,"offsetX");
+	HX_VISIT_MEMBER_NAME(offsetY,"offsetY");
 	HX_VISIT_MEMBER_NAME(tabWidth,"tabWidth");
 	HX_VISIT_MEMBER_NAME(tabHeight,"tabHeight");
+	HX_VISIT_MEMBER_NAME(maxWidth,"maxWidth");
+	HX_VISIT_MEMBER_NAME(maxHeight,"maxHeight");
 	HX_VISIT_MEMBER_NAME(backgroundTab,"backgroundTab");
 	HX_VISIT_MEMBER_NAME(borderTab,"borderTab");
 	HX_VISIT_MEMBER_NAME(txtFrmt,"txtFrmt");
+	HX_VISIT_MEMBER_NAME(tabModelsData,"tabModelsData");
 	 ::openfl::display::Sprite_obj::__Visit(HX_VISIT_ARG);
 }
 
@@ -260,14 +254,18 @@ void Main_obj::__Visit(HX_VISIT_PARAMS)
 	switch(inName.length) {
 	case 7:
 		if (HX_FIELD_EQ(inName,"mainTab") ) { return ::hx::Val( mainTab ); }
+		if (HX_FIELD_EQ(inName,"offsetX") ) { return ::hx::Val( offsetX ); }
+		if (HX_FIELD_EQ(inName,"offsetY") ) { return ::hx::Val( offsetY ); }
 		if (HX_FIELD_EQ(inName,"txtFrmt") ) { return ::hx::Val( txtFrmt ); }
 		break;
 	case 8:
 		if (HX_FIELD_EQ(inName,"tabWidth") ) { return ::hx::Val( tabWidth ); }
+		if (HX_FIELD_EQ(inName,"maxWidth") ) { return ::hx::Val( maxWidth ); }
 		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"clearence") ) { return ::hx::Val( clearence ); }
 		if (HX_FIELD_EQ(inName,"tabHeight") ) { return ::hx::Val( tabHeight ); }
+		if (HX_FIELD_EQ(inName,"maxHeight") ) { return ::hx::Val( maxHeight ); }
 		if (HX_FIELD_EQ(inName,"borderTab") ) { return ::hx::Val( borderTab ); }
 		break;
 	case 11:
@@ -275,6 +273,7 @@ void Main_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 13:
 		if (HX_FIELD_EQ(inName,"backgroundTab") ) { return ::hx::Val( backgroundTab ); }
+		if (HX_FIELD_EQ(inName,"tabModelsData") ) { return ::hx::Val( tabModelsData ); }
 		break;
 	case 18:
 		if (HX_FIELD_EQ(inName,"backgroundTabColor") ) { return ::hx::Val( backgroundTabColor ); }
@@ -296,14 +295,18 @@ void Main_obj::__Visit(HX_VISIT_PARAMS)
 	switch(inName.length) {
 	case 7:
 		if (HX_FIELD_EQ(inName,"mainTab") ) { mainTab=inValue.Cast<  ::openfl::text::TextField >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"offsetX") ) { offsetX=inValue.Cast< Float >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"offsetY") ) { offsetY=inValue.Cast< Float >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"txtFrmt") ) { txtFrmt=inValue.Cast<  ::openfl::text::TextFormat >(); return inValue; }
 		break;
 	case 8:
 		if (HX_FIELD_EQ(inName,"tabWidth") ) { tabWidth=inValue.Cast< Float >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"maxWidth") ) { maxWidth=inValue.Cast< Float >(); return inValue; }
 		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"clearence") ) { clearence=inValue.Cast< Float >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"tabHeight") ) { tabHeight=inValue.Cast< Float >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"maxHeight") ) { maxHeight=inValue.Cast< Float >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"borderTab") ) { borderTab=inValue.Cast< bool >(); return inValue; }
 		break;
 	case 11:
@@ -311,6 +314,7 @@ void Main_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 13:
 		if (HX_FIELD_EQ(inName,"backgroundTab") ) { backgroundTab=inValue.Cast< bool >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"tabModelsData") ) { tabModelsData=inValue.Cast< ::Array< ::Dynamic> >(); return inValue; }
 		break;
 	case 18:
 		if (HX_FIELD_EQ(inName,"backgroundTabColor") ) { backgroundTabColor=inValue.Cast< int >(); return inValue; }
@@ -328,11 +332,16 @@ void Main_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_("clearence",58,17,fe,cb));
 	outFields->push(HX_("backgroundTabColor",dc,e0,8a,59));
 	outFields->push(HX_("backgroundThemeColor",28,f0,5c,a2));
+	outFields->push(HX_("offsetX",65,09,65,d7));
+	outFields->push(HX_("offsetY",66,09,65,d7));
 	outFields->push(HX_("tabWidth",71,37,07,39));
 	outFields->push(HX_("tabHeight",1c,c4,98,63));
+	outFields->push(HX_("maxWidth",c2,08,80,74));
+	outFields->push(HX_("maxHeight",ab,19,d7,31));
 	outFields->push(HX_("backgroundTab",07,27,f1,91));
 	outFields->push(HX_("borderTab",c9,a0,9b,80));
 	outFields->push(HX_("txtFrmt",43,36,a4,cb));
+	outFields->push(HX_("tabModelsData",a9,aa,81,79));
 	super::__GetFields(outFields);
 };
 
@@ -343,11 +352,16 @@ static ::hx::StorageInfo Main_obj_sMemberStorageInfo[] = {
 	{::hx::fsFloat,(int)offsetof(Main_obj,clearence),HX_("clearence",58,17,fe,cb)},
 	{::hx::fsInt,(int)offsetof(Main_obj,backgroundTabColor),HX_("backgroundTabColor",dc,e0,8a,59)},
 	{::hx::fsInt,(int)offsetof(Main_obj,backgroundThemeColor),HX_("backgroundThemeColor",28,f0,5c,a2)},
+	{::hx::fsFloat,(int)offsetof(Main_obj,offsetX),HX_("offsetX",65,09,65,d7)},
+	{::hx::fsFloat,(int)offsetof(Main_obj,offsetY),HX_("offsetY",66,09,65,d7)},
 	{::hx::fsFloat,(int)offsetof(Main_obj,tabWidth),HX_("tabWidth",71,37,07,39)},
 	{::hx::fsFloat,(int)offsetof(Main_obj,tabHeight),HX_("tabHeight",1c,c4,98,63)},
+	{::hx::fsFloat,(int)offsetof(Main_obj,maxWidth),HX_("maxWidth",c2,08,80,74)},
+	{::hx::fsFloat,(int)offsetof(Main_obj,maxHeight),HX_("maxHeight",ab,19,d7,31)},
 	{::hx::fsBool,(int)offsetof(Main_obj,backgroundTab),HX_("backgroundTab",07,27,f1,91)},
 	{::hx::fsBool,(int)offsetof(Main_obj,borderTab),HX_("borderTab",c9,a0,9b,80)},
 	{::hx::fsObject /*  ::openfl::text::TextFormat */ ,(int)offsetof(Main_obj,txtFrmt),HX_("txtFrmt",43,36,a4,cb)},
+	{::hx::fsObject /* ::Array< ::Dynamic> */ ,(int)offsetof(Main_obj,tabModelsData),HX_("tabModelsData",a9,aa,81,79)},
 	{ ::hx::fsUnknown, 0, null()}
 };
 static ::hx::StaticInfo *Main_obj_sStaticStorageInfo = 0;
@@ -359,11 +373,16 @@ static ::String Main_obj_sMemberFields[] = {
 	HX_("clearence",58,17,fe,cb),
 	HX_("backgroundTabColor",dc,e0,8a,59),
 	HX_("backgroundThemeColor",28,f0,5c,a2),
+	HX_("offsetX",65,09,65,d7),
+	HX_("offsetY",66,09,65,d7),
 	HX_("tabWidth",71,37,07,39),
 	HX_("tabHeight",1c,c4,98,63),
+	HX_("maxWidth",c2,08,80,74),
+	HX_("maxHeight",ab,19,d7,31),
 	HX_("backgroundTab",07,27,f1,91),
 	HX_("borderTab",c9,a0,9b,80),
 	HX_("txtFrmt",43,36,a4,cb),
+	HX_("tabModelsData",a9,aa,81,79),
 	HX_("changeTextOfMainTab",48,59,3f,aa),
 	HX_("changeColorForTabLater",0d,e5,48,46),
 	::String(null()) };

@@ -12,6 +12,22 @@
 
 HX_LOCAL_STACK_FRAME(_hx_pos_2840d5ff18655d53_50_urlEncode,"StringTools","urlEncode",0x06afdce1,"StringTools.urlEncode","D:\\HaxeToolkit\\haxe\\std/StringTools.hx",50,0x0d59238c)
 HX_LOCAL_STACK_FRAME(_hx_pos_2840d5ff18655d53_118_urlDecode,"StringTools","urlDecode",0x71b947f9,"StringTools.urlDecode","D:\\HaxeToolkit\\haxe\\std/StringTools.hx",118,0x0d59238c)
+HX_LOCAL_STACK_FRAME(_hx_pos_2840d5ff18655d53_158_htmlEscape,"StringTools","htmlEscape",0x0e1a5dd0,"StringTools.htmlEscape","D:\\HaxeToolkit\\haxe\\std/StringTools.hx",158,0x0d59238c)
+static const ::String _hx_array_data_0363db6a_4[] = {
+	HX_("&quot;",2c,d9,81,8f),
+};
+static const ::String _hx_array_data_0363db6a_5[] = {
+	HX_("&amp;",dd,d4,aa,21),
+};
+static const ::String _hx_array_data_0363db6a_6[] = {
+	HX_("&#039;",62,26,77,78),
+};
+static const ::String _hx_array_data_0363db6a_7[] = {
+	HX_("&lt;",4d,74,70,19),
+};
+static const ::String _hx_array_data_0363db6a_8[] = {
+	HX_("&gt;",08,a9,6c,19),
+};
 HX_LOCAL_STACK_FRAME(_hx_pos_2840d5ff18655d53_194_htmlUnescape,"StringTools","htmlUnescape",0x7457fea9,"StringTools.htmlUnescape","D:\\HaxeToolkit\\haxe\\std/StringTools.hx",194,0x0d59238c)
 HX_LOCAL_STACK_FRAME(_hx_pos_2840d5ff18655d53_238_startsWith,"StringTools","startsWith",0x5f4e6efb,"StringTools.startsWith","D:\\HaxeToolkit\\haxe\\std/StringTools.hx",238,0x0d59238c)
 HX_LOCAL_STACK_FRAME(_hx_pos_2840d5ff18655d53_249_endsWith,"StringTools","endsWith",0x0eb5bfe2,"StringTools.endsWith","D:\\HaxeToolkit\\haxe\\std/StringTools.hx",249,0x0d59238c)
@@ -55,6 +71,169 @@ HXDLIN( 118)		return ( (::String)(s.__URLDecode()) );
 
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC1(StringTools_obj,urlDecode,return )
+
+::String StringTools_obj::htmlEscape(::String s, ::Dynamic quotes){
+            	HX_GC_STACKFRAME(&_hx_pos_2840d5ff18655d53_158_htmlEscape)
+HXLINE( 159)		 ::StringBuf buf =  ::StringBuf_obj::__alloc( HX_CTX );
+HXLINE( 160)		{
+HXLINE( 160)			int _g_offset = 0;
+HXDLIN( 160)			::String _g_s = s;
+HXDLIN( 160)			while((_g_offset < _g_s.length)){
+HXLINE( 160)				::String s = _g_s;
+HXDLIN( 160)				_g_offset = (_g_offset + 1);
+HXDLIN( 160)				int index = (_g_offset - 1);
+HXDLIN( 160)				int c = s.cca(index);
+HXDLIN( 160)				bool _hx_tmp;
+HXDLIN( 160)				if ((c >= 55296)) {
+HXLINE( 160)					_hx_tmp = (c <= 56319);
+            				}
+            				else {
+HXLINE( 160)					_hx_tmp = false;
+            				}
+HXDLIN( 160)				if (_hx_tmp) {
+HXLINE( 635)					c = (((c - 55232) << 10) | (s.cca((index + 1)) & 1023));
+            				}
+HXLINE( 160)				int c1 = c;
+HXDLIN( 160)				if ((c1 >= 65536)) {
+HXLINE( 160)					_g_offset = (_g_offset + 1);
+            				}
+HXDLIN( 160)				int code = c1;
+HXLINE( 161)				switch((int)(code)){
+            					case (int)34: {
+HXLINE( 168)						if (( (bool)(quotes) )) {
+HXLINE( 169)							if (::hx::IsNotNull( buf->charBuf )) {
+HXLINE( 169)								buf->flush();
+            							}
+HXDLIN( 169)							if (::hx::IsNull( buf->b )) {
+HXLINE( 169)								buf->b = ::Array_obj< ::String >::fromData( _hx_array_data_0363db6a_4,1);
+            							}
+            							else {
+HXLINE( 169)								buf->b->push(HX_("&quot;",2c,d9,81,8f));
+            							}
+            						}
+            						else {
+HXLINE( 173)							if ((code >= 127)) {
+HXLINE( 173)								::String x = ::String::fromCharCode(code);
+HXDLIN( 173)								if (::hx::IsNotNull( buf->charBuf )) {
+HXLINE( 173)									buf->flush();
+            								}
+HXDLIN( 173)								if (::hx::IsNull( buf->b )) {
+HXLINE( 173)									buf->b = ::Array_obj< ::String >::__new(1)->init(0,::Std_obj::string(x));
+            								}
+            								else {
+HXLINE( 173)									::Array< ::String > buf1 = buf->b;
+HXDLIN( 173)									buf1->push(::Std_obj::string(x));
+            								}
+            							}
+            							else {
+HXLINE( 173)								if (::hx::IsNull( buf->charBuf )) {
+HXLINE( 173)									buf->charBuf = ::Array_obj< char >::__new();
+            								}
+HXDLIN( 173)								buf->charBuf->push(code);
+            							}
+            						}
+            					}
+            					break;
+            					case (int)38: {
+HXLINE( 163)						if (::hx::IsNotNull( buf->charBuf )) {
+HXLINE( 163)							buf->flush();
+            						}
+HXDLIN( 163)						if (::hx::IsNull( buf->b )) {
+HXLINE( 163)							buf->b = ::Array_obj< ::String >::fromData( _hx_array_data_0363db6a_5,1);
+            						}
+            						else {
+HXLINE( 163)							buf->b->push(HX_("&amp;",dd,d4,aa,21));
+            						}
+            					}
+            					break;
+            					case (int)39: {
+HXLINE( 170)						if (( (bool)(quotes) )) {
+HXLINE( 171)							if (::hx::IsNotNull( buf->charBuf )) {
+HXLINE( 171)								buf->flush();
+            							}
+HXDLIN( 171)							if (::hx::IsNull( buf->b )) {
+HXLINE( 171)								buf->b = ::Array_obj< ::String >::fromData( _hx_array_data_0363db6a_6,1);
+            							}
+            							else {
+HXLINE( 171)								buf->b->push(HX_("&#039;",62,26,77,78));
+            							}
+            						}
+            						else {
+HXLINE( 173)							if ((code >= 127)) {
+HXLINE( 173)								::String x = ::String::fromCharCode(code);
+HXDLIN( 173)								if (::hx::IsNotNull( buf->charBuf )) {
+HXLINE( 173)									buf->flush();
+            								}
+HXDLIN( 173)								if (::hx::IsNull( buf->b )) {
+HXLINE( 173)									buf->b = ::Array_obj< ::String >::__new(1)->init(0,::Std_obj::string(x));
+            								}
+            								else {
+HXLINE( 173)									::Array< ::String > buf1 = buf->b;
+HXDLIN( 173)									buf1->push(::Std_obj::string(x));
+            								}
+            							}
+            							else {
+HXLINE( 173)								if (::hx::IsNull( buf->charBuf )) {
+HXLINE( 173)									buf->charBuf = ::Array_obj< char >::__new();
+            								}
+HXDLIN( 173)								buf->charBuf->push(code);
+            							}
+            						}
+            					}
+            					break;
+            					case (int)60: {
+HXLINE( 165)						if (::hx::IsNotNull( buf->charBuf )) {
+HXLINE( 165)							buf->flush();
+            						}
+HXDLIN( 165)						if (::hx::IsNull( buf->b )) {
+HXLINE( 165)							buf->b = ::Array_obj< ::String >::fromData( _hx_array_data_0363db6a_7,1);
+            						}
+            						else {
+HXLINE( 165)							buf->b->push(HX_("&lt;",4d,74,70,19));
+            						}
+            					}
+            					break;
+            					case (int)62: {
+HXLINE( 167)						if (::hx::IsNotNull( buf->charBuf )) {
+HXLINE( 167)							buf->flush();
+            						}
+HXDLIN( 167)						if (::hx::IsNull( buf->b )) {
+HXLINE( 167)							buf->b = ::Array_obj< ::String >::fromData( _hx_array_data_0363db6a_8,1);
+            						}
+            						else {
+HXLINE( 167)							buf->b->push(HX_("&gt;",08,a9,6c,19));
+            						}
+            					}
+            					break;
+            					default:{
+HXLINE( 173)						if ((code >= 127)) {
+HXLINE( 173)							::String x = ::String::fromCharCode(code);
+HXDLIN( 173)							if (::hx::IsNotNull( buf->charBuf )) {
+HXLINE( 173)								buf->flush();
+            							}
+HXDLIN( 173)							if (::hx::IsNull( buf->b )) {
+HXLINE( 173)								buf->b = ::Array_obj< ::String >::__new(1)->init(0,::Std_obj::string(x));
+            							}
+            							else {
+HXLINE( 173)								::Array< ::String > buf1 = buf->b;
+HXDLIN( 173)								buf1->push(::Std_obj::string(x));
+            							}
+            						}
+            						else {
+HXLINE( 173)							if (::hx::IsNull( buf->charBuf )) {
+HXLINE( 173)								buf->charBuf = ::Array_obj< char >::__new();
+            							}
+HXDLIN( 173)							buf->charBuf->push(code);
+            						}
+            					}
+            				}
+            			}
+            		}
+HXLINE( 176)		return buf->toString();
+            	}
+
+
+STATIC_HX_DEFINE_DYNAMIC_FUNC2(StringTools_obj,htmlEscape,return )
 
 ::String StringTools_obj::htmlUnescape(::String s){
             	HX_STACKFRAME(&_hx_pos_2840d5ff18655d53_194_htmlUnescape)
@@ -129,11 +308,11 @@ HXLINE( 302)				_hx_tmp = ::StringTools_obj::isSpace(s,r);
 HXLINE( 302)				_hx_tmp = false;
             			}
 HXDLIN( 302)			if (!(_hx_tmp)) {
-HXLINE( 302)				goto _hx_goto_6;
+HXLINE( 302)				goto _hx_goto_13;
             			}
 HXLINE( 303)			r = (r + 1);
             		}
-            		_hx_goto_6:;
+            		_hx_goto_13:;
 HXLINE( 305)		if ((r > 0)) {
 HXLINE( 306)			return s.substr(r,(l - r));
             		}
@@ -159,11 +338,11 @@ HXLINE( 327)				_hx_tmp = ::StringTools_obj::isSpace(s,((l - r) - 1));
 HXLINE( 327)				_hx_tmp = false;
             			}
 HXDLIN( 327)			if (!(_hx_tmp)) {
-HXLINE( 327)				goto _hx_goto_8;
+HXLINE( 327)				goto _hx_goto_15;
             			}
 HXLINE( 328)			r = (r + 1);
             		}
-            		_hx_goto_8:;
+            		_hx_goto_15:;
 HXLINE( 330)		if ((r > 0)) {
 HXLINE( 331)			return s.substr(0,(l - r));
             		}
@@ -237,10 +416,10 @@ HXLINE( 442)		while(true){
 HXLINE( 443)			s = (hexChars.charAt((n & 15)) + s);
 HXLINE( 444)			n = ::hx::UShr(n,4);
 HXLINE( 442)			if (!((n > 0))) {
-HXLINE( 442)				goto _hx_goto_14;
+HXLINE( 442)				goto _hx_goto_21;
             			}
             		}
-            		_hx_goto_14:;
+            		_hx_goto_21:;
 HXLINE( 455)		if (::hx::IsNotNull( digits )) {
 HXLINE( 456)			while(::hx::IsLess( s.length,digits )){
 HXLINE( 457)				s = (HX_("0",30,00,00,00) + s);
@@ -283,6 +462,7 @@ bool StringTools_obj::__GetStatic(const ::String &inName, Dynamic &outValue, ::h
 		if (HX_FIELD_EQ(inName,"urlDecode") ) { outValue = urlDecode_dyn(); return true; }
 		break;
 	case 10:
+		if (HX_FIELD_EQ(inName,"htmlEscape") ) { outValue = htmlEscape_dyn(); return true; }
 		if (HX_FIELD_EQ(inName,"startsWith") ) { outValue = startsWith_dyn(); return true; }
 		break;
 	case 12:
@@ -301,6 +481,7 @@ static ::hx::StaticInfo *StringTools_obj_sStaticStorageInfo = 0;
 static ::String StringTools_obj_sStaticFields[] = {
 	HX_("urlEncode",e5,4e,52,9a),
 	HX_("urlDecode",fd,b9,5b,05),
+	HX_("htmlEscape",4c,af,9b,a8),
 	HX_("htmlUnescape",25,a7,ed,ae),
 	HX_("startsWith",77,c0,cf,f9),
 	HX_("endsWith",5e,7a,b6,db),

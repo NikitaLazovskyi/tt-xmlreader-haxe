@@ -24,6 +24,9 @@
 #ifndef INCLUDED_lime_ui_MouseCursor
 #include <lime/ui/MouseCursor.h>
 #endif
+#ifndef INCLUDED_lime_ui_FileDialogType
+#include <lime/ui/FileDialogType.h>
+#endif
 #ifndef INCLUDED_lime_system__ThreadPool_ThreadPoolMessageType
 #include <lime/system/_ThreadPool/ThreadPoolMessageType.h>
 #endif
@@ -231,6 +234,9 @@
 #ifndef INCLUDED_openfl_geom_Matrix3D
 #include <openfl/geom/Matrix3D.h>
 #endif
+#ifndef INCLUDED_openfl_filesystem_File
+#include <openfl/filesystem/File.h>
+#endif
 #ifndef INCLUDED_openfl_events_UncaughtErrorEvent
 #include <openfl/events/UncaughtErrorEvent.h>
 #endif
@@ -269,6 +275,9 @@
 #endif
 #ifndef INCLUDED_openfl_events_FocusEvent
 #include <openfl/events/FocusEvent.h>
+#endif
+#ifndef INCLUDED_openfl_events_FileListEvent
+#include <openfl/events/FileListEvent.h>
 #endif
 #ifndef INCLUDED_openfl_events__EventDispatcher_Listener
 #include <openfl/events/_EventDispatcher/Listener.h>
@@ -711,6 +720,9 @@
 #ifndef INCLUDED_lime_system_CFFI
 #include <lime/system/CFFI.h>
 #endif
+#ifndef INCLUDED_lime_system_BackgroundWorker
+#include <lime/system/BackgroundWorker.h>
+#endif
 #ifndef INCLUDED_lime_net_curl_CURL
 #include <lime/net/curl/CURL.h>
 #endif
@@ -756,6 +768,9 @@
 #ifndef INCLUDED_haxe_zip_InflateImpl
 #include <haxe/zip/InflateImpl.h>
 #endif
+#ifndef INCLUDED_haxe_xml_Parser
+#include <haxe/xml/Parser.h>
+#endif
 #ifndef INCLUDED_haxe_crypto_Base64
 #include <haxe/crypto/Base64.h>
 #endif
@@ -770,6 +785,9 @@
 #endif
 #ifndef INCLUDED_haxe_Log
 #include <haxe/Log.h>
+#endif
+#ifndef INCLUDED_Xml
+#include <Xml.h>
 #endif
 #ifndef INCLUDED_haxe_SysTools
 #include <haxe/SysTools.h>
@@ -815,6 +833,9 @@
 #endif
 #ifndef INCLUDED_sys_io__Process_Stdin
 #include <sys/io/_Process/Stdin.h>
+#endif
+#ifndef INCLUDED_sys_io_FileOutput
+#include <sys/io/FileOutput.h>
 #endif
 #ifndef INCLUDED_sys_io_FileInput
 #include <sys/io/FileInput.h>
@@ -876,6 +897,9 @@
 #ifndef INCLUDED_openfl_net_IDynamicPropertyOutput
 #include <openfl/net/IDynamicPropertyOutput.h>
 #endif
+#ifndef INCLUDED_openfl_net_FileFilter
+#include <openfl/net/FileFilter.h>
+#endif
 #ifndef INCLUDED_openfl_media_SoundLoaderContext
 #include <openfl/media/SoundLoaderContext.h>
 #endif
@@ -896,6 +920,9 @@
 #endif
 #ifndef INCLUDED_openfl_filters_BitmapFilter
 #include <openfl/filters/BitmapFilter.h>
+#endif
+#ifndef INCLUDED_openfl_net_FileReference
+#include <openfl/net/FileReference.h>
 #endif
 #ifndef INCLUDED_openfl_events_UncaughtErrorEvents
 #include <openfl/events/UncaughtErrorEvents.h>
@@ -1134,6 +1161,9 @@
 #ifndef INCLUDED_openfl_display_Bitmap
 #include <openfl/display/Bitmap.h>
 #endif
+#ifndef INCLUDED_lime_utils__Resource_Resource_Impl_
+#include <lime/utils/_Resource/Resource_Impl_.h>
+#endif
 #ifndef INCLUDED_lime_utils_Preloader
 #include <lime/utils/Preloader.h>
 #endif
@@ -1169,6 +1199,9 @@
 #endif
 #ifndef INCLUDED_lime_ui_Window
 #include <lime/ui/Window.h>
+#endif
+#ifndef INCLUDED_lime_ui_FileDialog
+#include <lime/ui/FileDialog.h>
 #endif
 #ifndef INCLUDED_lime_text_harfbuzz_HBSegmentProperties
 #include <lime/text/harfbuzz/HBSegmentProperties.h>
@@ -1767,6 +1800,9 @@
 #ifndef INCLUDED_lime_app__Event_ofEvents_T_Void
 #include <lime/app/_Event_ofEvents_T_Void.h>
 #endif
+#ifndef INCLUDED_lime_app__Event_lime_utils_Resource_Void
+#include <lime/app/_Event_lime_utils_Resource_Void.h>
+#endif
 #ifndef INCLUDED_lime_app__Event_lime_ui_Window_Void
 #include <lime/app/_Event_lime_ui_Window_Void.h>
 #endif
@@ -1832,6 +1868,9 @@
 #endif
 #ifndef INCLUDED_lime_app__Event_Dynamic_Void
 #include <lime/app/_Event_Dynamic_Void.h>
+#endif
+#ifndef INCLUDED_lime_app__Event_Array_String__Void
+#include <lime/app/_Event_Array_String__Void.h>
 #endif
 #ifndef INCLUDED_lime_app_Promise_openfl_utils_ByteArray
 #include <lime/app/Promise_openfl_utils_ByteArray.h>
@@ -1962,6 +2001,12 @@
 #ifndef INCLUDED_haxe_zip_HuffTools
 #include <haxe/zip/HuffTools.h>
 #endif
+#ifndef INCLUDED_haxe_xml_Printer
+#include <haxe/xml/Printer.h>
+#endif
+#ifndef INCLUDED_haxe_xml_XmlParserException
+#include <haxe/xml/XmlParserException.h>
+#endif
 #ifndef INCLUDED_haxe_iterators_MapKeyValueIterator
 #include <haxe/iterators/MapKeyValueIterator.h>
 #endif
@@ -1997,6 +2042,9 @@
 #endif
 #ifndef INCLUDED_haxe_exceptions_NotImplementedException
 #include <haxe/exceptions/NotImplementedException.h>
+#endif
+#ifndef INCLUDED_haxe_exceptions_ArgumentException
+#include <haxe/exceptions/ArgumentException.h>
 #endif
 #ifndef INCLUDED_haxe_exceptions_PosException
 #include <haxe/exceptions/PosException.h>
@@ -2052,17 +2100,29 @@
 #ifndef INCLUDED_cpp_Lib
 #include <cpp/Lib.h>
 #endif
+#ifndef INCLUDED_com_theproductengine_xmlreader_XMLReader
+#include <com/theproductengine/xmlreader/XMLReader.h>
+#endif
 #ifndef INCLUDED_com_theproductengine_ui_Tab
 #include <com/theproductengine/ui/Tab.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_model_TabModel
+#include <com/theproductengine/model/TabModel.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_model_TabGroup
+#include <com/theproductengine/model/TabGroup.h>
 #endif
 #ifndef INCLUDED_com_theproductengine_interfaces_Cloneable
 #include <com/theproductengine/interfaces/Cloneable.h>
 #endif
-#ifndef INCLUDED_com_theproductengine_builder_TabGroup
-#include <com/theproductengine/builder/TabGroup.h>
+#ifndef INCLUDED_com_theproductengine_factory_TabGroupAbstract
+#include <com/theproductengine/factory/TabGroupAbstract.h>
 #endif
 #ifndef INCLUDED_com_theproductengine_builder_TabBuilder
 #include <com/theproductengine/builder/TabBuilder.h>
+#endif
+#ifndef INCLUDED__Xml_XmlType_Impl_
+#include <_Xml/XmlType_Impl_.h>
 #endif
 #ifndef INCLUDED_Type
 #include <Type.h>
@@ -2151,6 +2211,7 @@ __files__boot();
 ::lime::utils::CompressionAlgorithm_obj::__register();
 ::lime::ui::MouseWheelMode_obj::__register();
 ::lime::ui::MouseCursor_obj::__register();
+::lime::ui::FileDialogType_obj::__register();
 ::lime::_hx_system::_ThreadPool::ThreadPoolMessageType_obj::__register();
 ::lime::_hx_system::SensorType_obj::__register();
 ::lime::_hx_system::Endian_obj::__register();
@@ -2220,6 +2281,7 @@ __files__boot();
 ::openfl::media::SoundTransform_obj::__register();
 ::openfl::geom::_Orientation3D::Orientation3D_Impl__obj::__register();
 ::openfl::geom::Matrix3D_obj::__register();
+::openfl::filesystem::File_obj::__register();
 ::openfl::events::UncaughtErrorEvent_obj::__register();
 ::openfl::events::TouchEvent_obj::__register();
 ::openfl::events::SecurityErrorEvent_obj::__register();
@@ -2233,6 +2295,7 @@ __files__boot();
 ::openfl::events::GameInputEvent_obj::__register();
 ::openfl::events::FullScreenEvent_obj::__register();
 ::openfl::events::FocusEvent_obj::__register();
+::openfl::events::FileListEvent_obj::__register();
 ::openfl::events::_EventDispatcher::Listener_obj::__register();
 ::openfl::events::_EventDispatcher::DispatchIterator_obj::__register();
 ::openfl::events::ErrorEvent_obj::__register();
@@ -2380,6 +2443,7 @@ __files__boot();
 ::lime::_hx_system::JNI_obj::__register();
 ::lime::_hx_system::Clipboard_obj::__register();
 ::lime::_hx_system::CFFI_obj::__register();
+::lime::_hx_system::BackgroundWorker_obj::__register();
 ::lime::net::curl::CURL_obj::__register();
 ::lime::media::openal::ALC_obj::__register();
 ::lime::media::openal::AL_obj::__register();
@@ -2395,11 +2459,13 @@ __files__boot();
 ::lime::_internal::backend::native::NativeOpenGLRenderContext_obj::__register();
 ::lime::_internal::backend::native::NativeAudioSource_obj::__register();
 ::haxe::zip::InflateImpl_obj::__register();
+::haxe::xml::Parser_obj::__register();
 ::haxe::crypto::Base64_obj::__register();
 ::haxe::Unserializer_obj::__register();
 ::haxe::Timer_obj::__register();
 ::haxe::Serializer_obj::__register();
 ::haxe::Log_obj::__register();
+::Xml_obj::__register();
 ::haxe::SysTools_obj::__register();
 ::openfl::display::DisplayObject_obj::__register();
 ::openfl::_Vector::Vector_Impl__obj::__register();
@@ -2415,6 +2481,7 @@ __files__boot();
 ::sys::io::Process_obj::__register();
 ::sys::io::_Process::Stdout_obj::__register();
 ::sys::io::_Process::Stdin_obj::__register();
+::sys::io::FileOutput_obj::__register();
 ::sys::io::FileInput_obj::__register();
 ::sys::io::File_obj::__register();
 ::sys::FileSystem_obj::__register();
@@ -2435,6 +2502,7 @@ __files__boot();
 ::openfl::net::URLLoader_obj::__register();
 ::openfl::net::IDynamicPropertyWriter_obj::__register();
 ::openfl::net::IDynamicPropertyOutput_obj::__register();
+::openfl::net::FileFilter_obj::__register();
 ::openfl::media::SoundLoaderContext_obj::__register();
 ::openfl::media::SoundChannel_obj::__register();
 ::openfl::media::Sound_obj::__register();
@@ -2442,6 +2510,7 @@ __files__boot();
 ::openfl::geom::Vector3D_obj::__register();
 ::openfl::geom::Transform_obj::__register();
 ::openfl::filters::BitmapFilter_obj::__register();
+::openfl::net::FileReference_obj::__register();
 ::openfl::events::UncaughtErrorEvents_obj::__register();
 ::openfl::events::_EventType::EventType_Impl__obj::__register();
 ::openfl::errors::TypeError_obj::__register();
@@ -2521,6 +2590,7 @@ __files__boot();
 ::openfl::display::FrameLabel_obj::__register();
 ::openfl::display::DisplayObjectShader_obj::__register();
 ::openfl::display::Bitmap_obj::__register();
+::lime::utils::_Resource::Resource_Impl__obj::__register();
 ::lime::utils::Preloader_obj::__register();
 ::lime::utils::_DataPointer::DataPointer_Impl__obj::__register();
 ::lime::utils::_Bytes::Bytes_Impl__obj::__register();
@@ -2533,6 +2603,7 @@ __files__boot();
 ::lime::utils::ArrayBufferIO_obj::__register();
 ::lime::utils::_ArrayBuffer::ArrayBuffer_Impl__obj::__register();
 ::lime::ui::Window_obj::__register();
+::lime::ui::FileDialog_obj::__register();
 ::lime::text::harfbuzz::HBSegmentProperties_obj::__register();
 ::lime::text::harfbuzz::_HBLanguage::HBLanguage_Impl__obj::__register();
 ::lime::text::harfbuzz::HBGlyphPosition_obj::__register();
@@ -2732,6 +2803,7 @@ __files__boot();
 ::lime::graphics::_Canvas2DRenderContext::Canvas2DRenderContext_Impl__obj::__register();
 ::lime::graphics::_CairoRenderContext::CairoRenderContext_Impl__obj::__register();
 ::lime::app::_Event_ofEvents_T_Void_obj::__register();
+::lime::app::_Event_lime_utils_Resource_Void_obj::__register();
 ::lime::app::_Event_lime_ui_Window_Void_obj::__register();
 ::lime::app::_Event_lime_ui_Touch_Void_obj::__register();
 ::lime::app::_Event_lime_ui_KeyCode_lime_ui_KeyModifier_Void_obj::__register();
@@ -2754,6 +2826,7 @@ __files__boot();
 ::lime::app::_Event_Float_Float_Int_Void_obj::__register();
 ::lime::app::_Event_Float_Float_Float_Void_obj::__register();
 ::lime::app::_Event_Dynamic_Void_obj::__register();
+::lime::app::_Event_Array_String__Void_obj::__register();
 ::lime::app::Promise_openfl_utils_ByteArray_obj::__register();
 ::lime::app::Promise_openfl_text_Font_obj::__register();
 ::lime::app::Promise_openfl_media_Sound_obj::__register();
@@ -2797,6 +2870,8 @@ __files__boot();
 ::haxe::zip::Reader_obj::__register();
 ::haxe::zip::_InflateImpl::Window_obj::__register();
 ::haxe::zip::HuffTools_obj::__register();
+::haxe::xml::Printer_obj::__register();
+::haxe::xml::XmlParserException_obj::__register();
 ::haxe::iterators::MapKeyValueIterator_obj::__register();
 ::haxe::iterators::ArrayIterator_obj::__register();
 ::haxe::io::Path_obj::__register();
@@ -2809,6 +2884,7 @@ __files__boot();
 ::haxe::format::JsonPrinter_obj::__register();
 ::haxe::format::JsonParser_obj::__register();
 ::haxe::exceptions::NotImplementedException_obj::__register();
+::haxe::exceptions::ArgumentException_obj::__register();
 ::haxe::exceptions::PosException_obj::__register();
 ::haxe::ds::StringMap_obj::__register();
 ::haxe::ds::_List::ListIterator_obj::__register();
@@ -2827,10 +2903,14 @@ __files__boot();
 ::haxe::Exception_obj::__register();
 ::haxe::_CallStack::CallStack_Impl__obj::__register();
 ::cpp::Lib_obj::__register();
+::com::theproductengine::xmlreader::XMLReader_obj::__register();
 ::com::theproductengine::ui::Tab_obj::__register();
+::com::theproductengine::model::TabModel_obj::__register();
+::com::theproductengine::model::TabGroup_obj::__register();
 ::com::theproductengine::interfaces::Cloneable_obj::__register();
-::com::theproductengine::builder::TabGroup_obj::__register();
+::com::theproductengine::factory::TabGroupAbstract_obj::__register();
 ::com::theproductengine::builder::TabBuilder_obj::__register();
+::_Xml::XmlType_Impl__obj::__register();
 ::Type_obj::__register();
 ::Sys_obj::__register();
 ::StringTools_obj::__register();
@@ -2863,6 +2943,7 @@ __files__boot();
 ::lime::utils::CompressionAlgorithm_obj::__boot();
 ::lime::ui::MouseWheelMode_obj::__boot();
 ::lime::ui::MouseCursor_obj::__boot();
+::lime::ui::FileDialogType_obj::__boot();
 ::lime::_hx_system::_ThreadPool::ThreadPoolMessageType_obj::__boot();
 ::lime::_hx_system::SensorType_obj::__boot();
 ::lime::_hx_system::Endian_obj::__boot();
@@ -2893,10 +2974,12 @@ __files__boot();
 ::openfl::_Vector::Vector_Impl__obj::__boot();
 ::openfl::display::DisplayObject_obj::__boot();
 ::haxe::SysTools_obj::__boot();
+::Xml_obj::__boot();
 ::haxe::Serializer_obj::__boot();
 ::haxe::Timer_obj::__boot();
 ::haxe::Unserializer_obj::__boot();
 ::haxe::crypto::Base64_obj::__boot();
+::haxe::xml::Parser_obj::__boot();
 ::haxe::zip::InflateImpl_obj::__boot();
 ::lime::_internal::backend::native::NativeAudioSource_obj::__boot();
 ::lime::_internal::backend::native::NativeOpenGLRenderContext_obj::__boot();
@@ -2912,6 +2995,7 @@ __files__boot();
 ::lime::media::openal::AL_obj::__boot();
 ::lime::media::openal::ALC_obj::__boot();
 ::lime::net::curl::CURL_obj::__boot();
+::lime::_hx_system::BackgroundWorker_obj::__boot();
 ::lime::_hx_system::CFFI_obj::__boot();
 ::lime::_hx_system::Clipboard_obj::__boot();
 ::lime::_hx_system::JNI_obj::__boot();
@@ -3059,6 +3143,7 @@ __files__boot();
 ::openfl::events::ErrorEvent_obj::__boot();
 ::openfl::events::_EventDispatcher::DispatchIterator_obj::__boot();
 ::openfl::events::_EventDispatcher::Listener_obj::__boot();
+::openfl::events::FileListEvent_obj::__boot();
 ::openfl::events::FocusEvent_obj::__boot();
 ::openfl::events::FullScreenEvent_obj::__boot();
 ::openfl::events::GameInputEvent_obj::__boot();
@@ -3072,6 +3157,7 @@ __files__boot();
 ::openfl::events::SecurityErrorEvent_obj::__boot();
 ::openfl::events::TouchEvent_obj::__boot();
 ::openfl::events::UncaughtErrorEvent_obj::__boot();
+::openfl::filesystem::File_obj::__boot();
 ::openfl::geom::Matrix3D_obj::__boot();
 ::openfl::geom::_Orientation3D::Orientation3D_Impl__obj::__boot();
 ::openfl::media::SoundTransform_obj::__boot();

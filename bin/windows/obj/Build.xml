@@ -42,9 +42,18 @@
    <depend name="include/sys/io/_Process/Stdout.h"/>
   </file>
   <file name="src/sys/io/_Process/Stdin.cpp" >
+   <depend name="include/haxe/Exception.h"/>
    <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
    <depend name="include/haxe/io/Output.h"/>
    <depend name="include/sys/io/_Process/Stdin.h"/>
+  </file>
+  <file name="src/sys/io/FileOutput.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Output.h"/>
+   <depend name="include/sys/io/FileOutput.h"/>
   </file>
   <file name="src/sys/io/FileInput.cpp" >
    <depend name="include/haxe/Exception.h"/>
@@ -55,11 +64,16 @@
    <depend name="include/sys/io/FileInput.h"/>
   </file>
   <file name="src/sys/io/File.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
    <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/haxe/io/Output.h"/>
    <depend name="include/sys/io/File.h"/>
    <depend name="include/sys/io/FileInput.h"/>
+   <depend name="include/sys/io/FileOutput.h"/>
   </file>
   <file name="src/sys/FileSystem.cpp" >
+   <depend name="include/Date.h"/>
+   <depend name="include/haxe/Exception.h"/>
    <depend name="include/haxe/io/Path.h"/>
    <depend name="include/sys/FileSystem.h"/>
   </file>
@@ -684,6 +698,9 @@
   <file name="src/openfl/net/IDynamicPropertyOutput.cpp" >
    <depend name="include/openfl/net/IDynamicPropertyOutput.h"/>
   </file>
+  <file name="src/openfl/net/FileFilter.cpp" tags="haxe,release">
+   <depend name="include/openfl/net/FileFilter.h"/>
+  </file>
   <file name="src/openfl/media/Video.cpp" tags="haxe,release">
    <depend name="include/haxe/io/Bytes.h"/>
    <depend name="include/lime/_internal/backend/native/NativeOpenGLRenderContext.h"/>
@@ -806,6 +823,68 @@
    <depend name="include/openfl/geom/Point.h"/>
    <depend name="include/openfl/geom/Rectangle.h"/>
   </file>
+  <file name="src/openfl/filesystem/File.cpp" tags="haxe,release">
+   <depend name="include/Date.h"/>
+   <depend name="include/Reflect.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Sys.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/haxe/io/Path.h"/>
+   <depend name="include/lime/app/_Event_Array_String__Void.h"/>
+   <depend name="include/lime/app/_Event_Dynamic_Void.h"/>
+   <depend name="include/lime/app/_Event_String_Void.h"/>
+   <depend name="include/lime/app/_Event_Void_Void.h"/>
+   <depend name="include/lime/system/BackgroundWorker.h"/>
+   <depend name="include/lime/system/System.h"/>
+   <depend name="include/lime/ui/FileDialog.h"/>
+   <depend name="include/lime/ui/FileDialogType.h"/>
+   <depend name="include/openfl/errors/ArgumentError.h"/>
+   <depend name="include/openfl/errors/Error.h"/>
+   <depend name="include/openfl/errors/IllegalOperationError.h"/>
+   <depend name="include/openfl/events/Event.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/FileListEvent.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/filesystem/File.h"/>
+   <depend name="include/openfl/net/FileFilter.h"/>
+   <depend name="include/openfl/net/FileReference.h"/>
+   <depend name="include/sys/FileSystem.h"/>
+   <depend name="include/sys/io/File.h"/>
+   <depend name="include/sys/io/Process.h"/>
+  </file>
+  <file name="src/openfl/net/FileReference.cpp" tags="haxe,release">
+   <depend name="include/Date.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/haxe/Timer.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Path.h"/>
+   <depend name="include/lime/app/_Event_String_Void.h"/>
+   <depend name="include/lime/app/_Event_Void_Void.h"/>
+   <depend name="include/lime/ui/FileDialog.h"/>
+   <depend name="include/lime/ui/FileDialogType.h"/>
+   <depend name="include/lime/utils/_Bytes/Bytes_Impl_.h"/>
+   <depend name="include/openfl/events/ErrorEvent.h"/>
+   <depend name="include/openfl/events/Event.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/events/IOErrorEvent.h"/>
+   <depend name="include/openfl/events/ProgressEvent.h"/>
+   <depend name="include/openfl/events/TextEvent.h"/>
+   <depend name="include/openfl/net/FileFilter.h"/>
+   <depend name="include/openfl/net/FileReference.h"/>
+   <depend name="include/openfl/net/URLLoader.h"/>
+   <depend name="include/openfl/net/URLRequest.h"/>
+   <depend name="include/openfl/utils/ByteArrayData.h"/>
+   <depend name="include/openfl/utils/IDataInput.h"/>
+   <depend name="include/openfl/utils/IDataOutput.h"/>
+   <depend name="include/openfl/utils/_ByteArray/ByteArray_Impl_.h"/>
+   <depend name="include/openfl/utils/_internal/Lib.h"/>
+   <depend name="include/sys/FileSystem.h"/>
+   <depend name="include/sys/io/File.h"/>
+  </file>
   <file name="src/openfl/events/UncaughtErrorEvents.cpp" tags="haxe,release">
    <depend name="include/haxe/IMap.h"/>
    <depend name="include/haxe/ds/StringMap.h"/>
@@ -899,6 +978,14 @@
    <depend name="include/openfl/events/EventDispatcher.h"/>
    <depend name="include/openfl/events/FocusEvent.h"/>
    <depend name="include/openfl/events/IEventDispatcher.h"/>
+  </file>
+  <file name="src/openfl/events/FileListEvent.cpp" >
+   <depend name="include/openfl/events/Event.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/FileListEvent.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/filesystem/File.h"/>
+   <depend name="include/openfl/net/FileReference.h"/>
   </file>
   <file name="src/openfl/events/_EventType/EventType_Impl_.cpp" >
    <depend name="include/openfl/events/_EventType/EventType_Impl_.h"/>
@@ -3406,6 +3493,11 @@
    <depend name="include/openfl/_Vector/IVector.h"/>
    <depend name="include/openfl/_Vector/IntVector.h"/>
   </file>
+  <file name="src/lime/utils/_Resource/Resource_Impl_.cpp" >
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Encoding.h"/>
+   <depend name="include/lime/utils/_Resource/Resource_Impl_.h"/>
+  </file>
   <file name="src/lime/utils/Preloader.cpp" tags="haxe,release">
    <depend name="include/Std.h"/>
    <depend name="include/haxe/IMap.h"/>
@@ -3713,6 +3805,22 @@
    <depend name="include/lime/app/_Event_lime_ui_Gamepad_Void.h"/>
    <depend name="include/lime/ui/Gamepad.h"/>
   </file>
+  <file name="src/lime/ui/FileDialogType.cpp" >
+   <depend name="include/lime/ui/FileDialogType.h"/>
+  </file>
+  <file name="src/lime/ui/FileDialog.cpp" tags="haxe,release">
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/lime/_internal/backend/native/NativeCFFI.h"/>
+   <depend name="include/lime/app/_Event_Array_String__Void.h"/>
+   <depend name="include/lime/app/_Event_Dynamic_Void.h"/>
+   <depend name="include/lime/app/_Event_String_Void.h"/>
+   <depend name="include/lime/app/_Event_Void_Void.h"/>
+   <depend name="include/lime/app/_Event_lime_utils_Resource_Void.h"/>
+   <depend name="include/lime/system/BackgroundWorker.h"/>
+   <depend name="include/lime/ui/FileDialog.h"/>
+   <depend name="include/lime/ui/FileDialogType.h"/>
+   <depend name="include/sys/io/File.h"/>
+  </file>
   <file name="src/lime/text/harfbuzz/HBSegmentProperties.cpp" >
    <depend name="include/lime/text/harfbuzz/HBSegmentProperties.h"/>
   </file>
@@ -3928,6 +4036,16 @@
    <depend name="include/haxe/io/Input.h"/>
    <depend name="include/lime/system/CFFI.h"/>
    <depend name="include/sys/io/Process.h"/>
+  </file>
+  <file name="src/lime/system/BackgroundWorker.cpp" tags="haxe,release">
+   <depend name="include/lime/app/Application.h"/>
+   <depend name="include/lime/app/IModule.h"/>
+   <depend name="include/lime/app/Module.h"/>
+   <depend name="include/lime/app/_Event_Dynamic_Void.h"/>
+   <depend name="include/lime/app/_Event_Int_Void.h"/>
+   <depend name="include/lime/system/BackgroundWorker.h"/>
+   <depend name="include/sys/thread/Deque.h"/>
+   <depend name="include/sys/thread/_Thread/HaxeThread.h"/>
   </file>
   <file name="src/lime/net/curl/CURLMultiMessage.cpp" >
    <depend name="include/lime/net/curl/CURL.h"/>
@@ -4751,6 +4869,11 @@
    <depend name="include/Reflect.h"/>
    <depend name="include/lime/app/_Event_ofEvents_T_Void.h"/>
   </file>
+  <file name="src/lime/app/_Event_lime_utils_Resource_Void.cpp" tags="haxe,release">
+   <depend name="include/Reflect.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/lime/app/_Event_lime_utils_Resource_Void.h"/>
+  </file>
   <file name="src/lime/app/_Event_lime_ui_Window_Void.cpp" tags="haxe,release">
    <depend name="include/Reflect.h"/>
    <depend name="include/lime/app/_Event_lime_ui_Window_Void.h"/>
@@ -4844,6 +4967,10 @@
   <file name="src/lime/app/_Event_Dynamic_Void.cpp" tags="haxe,release">
    <depend name="include/Reflect.h"/>
    <depend name="include/lime/app/_Event_Dynamic_Void.h"/>
+  </file>
+  <file name="src/lime/app/_Event_Array_String__Void.cpp" tags="haxe,release">
+   <depend name="include/Reflect.h"/>
+   <depend name="include/lime/app/_Event_Array_String__Void.h"/>
   </file>
   <file name="src/lime/app/Promise_openfl_utils_ByteArray.cpp" >
    <depend name="include/haxe/io/Bytes.h"/>
@@ -5360,6 +5487,31 @@
    <depend name="include/haxe/io/Bytes.h"/>
    <depend name="include/haxe/zip/ExtraField.h"/>
   </file>
+  <file name="src/haxe/xml/Printer.cpp" >
+   <depend name="include/EReg.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/_Xml/XmlType_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/xml/Printer.h"/>
+  </file>
+  <file name="src/haxe/xml/Parser.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/_Xml/XmlType_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/xml/Parser.h"/>
+   <depend name="include/haxe/xml/XmlParserException.h"/>
+  </file>
+  <file name="src/haxe/xml/XmlParserException.cpp" >
+   <depend name="include/Type.h"/>
+   <depend name="include/haxe/xml/XmlParserException.h"/>
+  </file>
   <file name="src/haxe/iterators/MapKeyValueIterator.cpp" >
    <depend name="include/haxe/IMap.h"/>
    <depend name="include/haxe/iterators/MapKeyValueIterator.h"/>
@@ -5368,6 +5520,8 @@
    <depend name="include/haxe/iterators/ArrayIterator.h"/>
   </file>
   <file name="src/haxe/io/Path.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
    <depend name="include/haxe/io/Path.h"/>
   </file>
   <file name="src/haxe/io/FPHelper.cpp" >
@@ -5383,6 +5537,14 @@
    <depend name="include/haxe/io/Encoding.h"/>
   </file>
   <file name="src/haxe/io/Output.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/io/Eof.h"/>
+   <depend name="include/haxe/io/Error.h"/>
+   <depend name="include/haxe/io/Input.h"/>
    <depend name="include/haxe/io/Output.h"/>
   </file>
   <file name="src/haxe/io/BytesInput.cpp" >
@@ -5431,6 +5593,11 @@
   <file name="src/haxe/exceptions/NotImplementedException.cpp" >
    <depend name="include/haxe/Exception.h"/>
    <depend name="include/haxe/exceptions/NotImplementedException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+  </file>
+  <file name="src/haxe/exceptions/ArgumentException.cpp" >
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/ArgumentException.h"/>
    <depend name="include/haxe/exceptions/PosException.h"/>
   </file>
   <file name="src/haxe/exceptions/PosException.cpp" >
@@ -5581,6 +5748,26 @@
    <depend name="include/cpp/Lib.h"/>
    <depend name="include/haxe/Exception.h"/>
   </file>
+  <file name="src/com/theproductengine/xmlreader/XMLReader.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/_Xml/XmlType_Impl_.h"/>
+   <depend name="include/com/theproductengine/model/TabModel.h"/>
+   <depend name="include/com/theproductengine/xmlreader/XMLReader.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/exceptions/ArgumentException.h"/>
+   <depend name="include/haxe/exceptions/PosException.h"/>
+   <depend name="include/haxe/io/Input.h"/>
+   <depend name="include/haxe/io/Path.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/filesystem/File.h"/>
+   <depend name="include/openfl/net/FileReference.h"/>
+   <depend name="include/sys/FileSystem.h"/>
+   <depend name="include/sys/io/File.h"/>
+   <depend name="include/sys/io/FileInput.h"/>
+  </file>
   <file name="src/com/theproductengine/ui/Tab.cpp" >
    <depend name="include/com/theproductengine/builder/TabBuilder.h"/>
    <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
@@ -5593,12 +5780,13 @@
    <depend name="include/openfl/text/TextField.h"/>
    <depend name="include/openfl/text/TextFormat.h"/>
   </file>
-  <file name="src/com/theproductengine/interfaces/Cloneable.cpp" >
-   <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
+  <file name="src/com/theproductengine/model/TabModel.cpp" >
+   <depend name="include/com/theproductengine/model/TabModel.h"/>
   </file>
-  <file name="src/com/theproductengine/builder/TabGroup.cpp" >
-   <depend name="include/com/theproductengine/builder/TabGroup.h"/>
+  <file name="src/com/theproductengine/model/TabGroup.cpp" >
+   <depend name="include/com/theproductengine/factory/TabGroupAbstract.h"/>
    <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
+   <depend name="include/com/theproductengine/model/TabGroup.h"/>
    <depend name="include/com/theproductengine/ui/Tab.h"/>
    <depend name="include/openfl/display/DisplayObject.h"/>
    <depend name="include/openfl/display/IBitmapDrawable.h"/>
@@ -5607,6 +5795,20 @@
    <depend name="include/openfl/events/IEventDispatcher.h"/>
    <depend name="include/openfl/text/TextField.h"/>
    <depend name="include/openfl/text/TextFormat.h"/>
+  </file>
+  <file name="src/com/theproductengine/interfaces/Cloneable.cpp" >
+   <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
+  </file>
+  <file name="src/com/theproductengine/factory/TabGroupAbstract.cpp" >
+   <depend name="include/com/theproductengine/factory/TabGroupAbstract.h"/>
+   <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
+   <depend name="include/com/theproductengine/ui/Tab.h"/>
+   <depend name="include/openfl/display/DisplayObject.h"/>
+   <depend name="include/openfl/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/display/InteractiveObject.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/text/TextField.h"/>
   </file>
   <file name="src/com/theproductengine/builder/TabBuilder.cpp" >
    <depend name="include/com/theproductengine/builder/TabBuilder.h"/>
@@ -5619,6 +5821,19 @@
    <depend name="include/openfl/events/IEventDispatcher.h"/>
    <depend name="include/openfl/text/TextField.h"/>
    <depend name="include/openfl/text/TextFormat.h"/>
+  </file>
+  <file name="src/Xml.cpp" >
+   <depend name="include/Xml.h"/>
+   <depend name="include/_Xml/XmlType_Impl_.h"/>
+   <depend name="include/haxe/Exception.h"/>
+   <depend name="include/haxe/IMap.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/iterators/ArrayIterator.h"/>
+   <depend name="include/haxe/xml/Parser.h"/>
+   <depend name="include/haxe/xml/Printer.h"/>
+  </file>
+  <file name="src/_Xml/XmlType_Impl_.cpp" >
+   <depend name="include/_Xml/XmlType_Impl_.h"/>
   </file>
   <file name="src/Type.cpp" >
    <depend name="include/Reflect.h"/>
@@ -5682,13 +5897,14 @@
    <depend name="include/openfl/events/IEventDispatcher.h"/>
   </file>
   <file name="src/com/theproductengine/Main.cpp" >
-   <depend name="include/Std.h"/>
-   <depend name="include/StringBuf.h"/>
    <depend name="include/com/theproductengine/Main.h"/>
    <depend name="include/com/theproductengine/builder/TabBuilder.h"/>
-   <depend name="include/com/theproductengine/builder/TabGroup.h"/>
+   <depend name="include/com/theproductengine/factory/TabGroupAbstract.h"/>
    <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
+   <depend name="include/com/theproductengine/model/TabGroup.h"/>
+   <depend name="include/com/theproductengine/model/TabModel.h"/>
    <depend name="include/com/theproductengine/ui/Tab.h"/>
+   <depend name="include/com/theproductengine/xmlreader/XMLReader.h"/>
    <depend name="include/openfl/display/DisplayObject.h"/>
    <depend name="include/openfl/display/DisplayObjectContainer.h"/>
    <depend name="include/openfl/display/Graphics.h"/>
@@ -6012,6 +6228,7 @@
    <depend name="include/lime/utils/CompressionAlgorithm.h"/>
    <depend name="include/lime/ui/MouseWheelMode.h"/>
    <depend name="include/lime/ui/MouseCursor.h"/>
+   <depend name="include/lime/ui/FileDialogType.h"/>
    <depend name="include/lime/system/_ThreadPool/ThreadPoolMessageType.h"/>
    <depend name="include/lime/system/SensorType.h"/>
    <depend name="include/lime/system/Endian.h"/>
@@ -6081,6 +6298,7 @@
    <depend name="include/openfl/media/SoundTransform.h"/>
    <depend name="include/openfl/geom/_Orientation3D/Orientation3D_Impl_.h"/>
    <depend name="include/openfl/geom/Matrix3D.h"/>
+   <depend name="include/openfl/filesystem/File.h"/>
    <depend name="include/openfl/events/UncaughtErrorEvent.h"/>
    <depend name="include/openfl/events/TouchEvent.h"/>
    <depend name="include/openfl/events/SecurityErrorEvent.h"/>
@@ -6094,6 +6312,7 @@
    <depend name="include/openfl/events/GameInputEvent.h"/>
    <depend name="include/openfl/events/FullScreenEvent.h"/>
    <depend name="include/openfl/events/FocusEvent.h"/>
+   <depend name="include/openfl/events/FileListEvent.h"/>
    <depend name="include/openfl/events/_EventDispatcher/Listener.h"/>
    <depend name="include/openfl/events/_EventDispatcher/DispatchIterator.h"/>
    <depend name="include/openfl/events/ErrorEvent.h"/>
@@ -6241,6 +6460,7 @@
    <depend name="include/lime/system/JNI.h"/>
    <depend name="include/lime/system/Clipboard.h"/>
    <depend name="include/lime/system/CFFI.h"/>
+   <depend name="include/lime/system/BackgroundWorker.h"/>
    <depend name="include/lime/net/curl/CURL.h"/>
    <depend name="include/lime/media/openal/ALC.h"/>
    <depend name="include/lime/media/openal/AL.h"/>
@@ -6256,11 +6476,13 @@
    <depend name="include/lime/_internal/backend/native/NativeOpenGLRenderContext.h"/>
    <depend name="include/lime/_internal/backend/native/NativeAudioSource.h"/>
    <depend name="include/haxe/zip/InflateImpl.h"/>
+   <depend name="include/haxe/xml/Parser.h"/>
    <depend name="include/haxe/crypto/Base64.h"/>
    <depend name="include/haxe/Unserializer.h"/>
    <depend name="include/haxe/Timer.h"/>
    <depend name="include/haxe/Serializer.h"/>
    <depend name="include/haxe/Log.h"/>
+   <depend name="include/Xml.h"/>
    <depend name="include/haxe/SysTools.h"/>
    <depend name="include/openfl/display/DisplayObject.h"/>
    <depend name="include/openfl/_Vector/Vector_Impl_.h"/>

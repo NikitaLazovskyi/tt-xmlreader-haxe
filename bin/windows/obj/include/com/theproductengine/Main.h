@@ -9,6 +9,7 @@
 #include <openfl/display/Sprite.h>
 #endif
 HX_DECLARE_CLASS2(com,theproductengine,Main)
+HX_DECLARE_CLASS3(com,theproductengine,model,TabModel)
 HX_DECLARE_CLASS2(openfl,display,DisplayObject)
 HX_DECLARE_CLASS2(openfl,display,DisplayObjectContainer)
 HX_DECLARE_CLASS2(openfl,display,IBitmapDrawable)
@@ -60,11 +61,16 @@ class HXCPP_CLASS_ATTRIBUTES Main_obj : public  ::openfl::display::Sprite_obj
 		Float clearence;
 		int backgroundTabColor;
 		int backgroundThemeColor;
+		Float offsetX;
+		Float offsetY;
 		Float tabWidth;
 		Float tabHeight;
+		Float maxWidth;
+		Float maxHeight;
 		bool backgroundTab;
 		bool borderTab;
 		 ::openfl::text::TextFormat txtFrmt;
+		::Array< ::Dynamic> tabModelsData;
 		void changeTextOfMainTab(::String text, ::openfl::text::TextField field);
 		::Dynamic changeTextOfMainTab_dyn();
 

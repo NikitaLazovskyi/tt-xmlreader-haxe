@@ -55,6 +55,9 @@ class HXCPP_CLASS_ATTRIBUTES FileInput_obj : public  ::haxe::io::Input_obj
 
 		void close();
 
+		bool eof();
+		::Dynamic eof_dyn();
+
 };
 
 } // end namespace sys
