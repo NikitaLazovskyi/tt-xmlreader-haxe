@@ -889,7 +889,7 @@ ApplicationMain.main = function() {
 };
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
-	app.meta.h["build"] = "83";
+	app.meta.h["build"] = "1";
 	app.meta.h["company"] = "Nikko";
 	app.meta.h["file"] = "technical-task-lazovskyi";
 	app.meta.h["name"] = "TTLazovskyi";
@@ -3308,71 +3308,62 @@ openfl_display_Sprite.prototype = $extend(openfl_display_DisplayObjectContainer.
 	,__properties__: $extend(openfl_display_DisplayObjectContainer.prototype.__properties__,{get_graphics:"get_graphics",set_buttonMode:"set_buttonMode",get_buttonMode:"get_buttonMode"})
 });
 var com_theproductengine_Main = function() {
-	this.backgroundColor = 15329769;
+	this.txtFrmt = new openfl_text_TextFormat();
+	this.borderTab = true;
+	this.backgroundTab = true;
+	this.tabHeight = 40;
+	this.tabWidth = 150;
+	this.backgroundThemeColor = 15329769;
 	this.backgroundTabColor = 11652587;
-	this.clearence = 10;
+	this.clearence = 15;
 	var _gthis = this;
 	openfl_display_Sprite.call(this);
-	var main = new openfl_display_Shape();
-	main.get_graphics().beginFill(this.backgroundColor);
-	main.get_graphics().drawRect(0,0,800,480);
-	main.get_graphics().endFill();
-	this.addChild(main);
-	var tab1 = new openfl_text_TextField();
-	tab1.addEventListener("click",function(event) {
-		_gthis.changeTextOfMainTab("Some text for tab1 ------------ \n -----");
-	});
-	tab1.set_x(this.clearence);
-	tab1.set_y(this.clearence);
-	tab1.set_text("Tab1");
-	var txtFrmt = new openfl_text_TextFormat();
-	txtFrmt.align = 0;
-	txtFrmt.size = 20;
-	tab1.setTextFormat(txtFrmt);
-	tab1.set_border(true);
-	tab1.set_height(40);
-	tab1.set_width(150);
-	tab1.set_background(true);
-	tab1.set_backgroundColor(this.backgroundTabColor);
-	this.addChild(tab1);
-	var tab2 = new openfl_text_TextField();
-	tab2.addEventListener("click",function(event) {
-		_gthis.changeTextOfMainTab("Some text for tab2 ------------ \n -----");
-	});
-	tab2.set_x(this.clearence + tab1.get_width() + this.clearence);
-	tab2.set_y(this.clearence);
-	tab2.set_text("Tab2");
-	var txtFrmt = new openfl_text_TextFormat();
-	txtFrmt.align = 0;
-	txtFrmt.size = 20;
-	tab2.setTextFormat(txtFrmt);
-	tab2.set_border(true);
-	tab2.set_height(40);
-	tab2.set_width(150);
-	tab2.set_background(true);
-	tab2.set_backgroundColor(this.backgroundTabColor);
-	this.addChild(tab2);
-	var mainTab = new openfl_text_TextField();
-	mainTab.set_x(tab1.get_x());
-	mainTab.set_y(tab1.get_y() + tab1.get_height());
-	mainTab.set_text("ASS");
-	mainTab.setTextFormat(txtFrmt);
-	mainTab.set_border(true);
-	mainTab.set_height(300);
-	mainTab.set_width(700);
-	mainTab.set_background(true);
-	mainTab.set_backgroundColor(this.backgroundTabColor);
-	this.addChild(mainTab);
-	this.index = this.getChildIndex(mainTab);
+	this.txtFrmt.align = 0;
+	this.txtFrmt.size = 20;
+	this.get_graphics().beginFill(this.backgroundThemeColor);
+	this.get_graphics().drawRect(0,0,800,480);
+	this.get_graphics().endFill();
+	var example = com_theproductengine_ui_Tab.builder().setBackground(this.backgroundTab).setBackgroundColor(this.backgroundThemeColor).setHeight(this.tabHeight).setWidth(this.tabWidth).setX(this.clearence).setY(this.clearence).setTextFormat(this.txtFrmt).setText("Tab1").setBorder(this.borderTab).build();
+	var tabGroup = new com_theproductengine_builder_TabGroup(10,10,10,example,8,780,this.txtFrmt,this.backgroundTabColor);
+	var tabArray = tabGroup.getTabs();
+	this.mainTab = tabGroup.getMainTextField();
+	this.addChild(this.mainTab);
+	var i = 1;
+	var iterator_current = 0;
+	var iterator_array = tabArray;
+	while(iterator_current < iterator_array.length) {
+		var v = iterator_array[iterator_current++];
+		var textField = v.getTextField();
+		textField.set_text("Tab" + i);
+		var st_b = [];
+		st_b[0] = "";
+		st_b[0] += "Some text for \n tab";
+		st_b[0] += i == null ? "null" : "" + i;
+		st_b[0] += " \n ------------ \n -----asd--- \n asdasdasd \n kitty ipsum dolor";
+		textField.addEventListener("click",(function(st_b) {
+			return function(event) {
+				_gthis.changeTextOfMainTab(st_b[0],js_Boot.__cast(event.target , openfl_text_TextField));
+				haxe_Log.trace(_gthis.mainTab.get_text() + "by eventListener",{ fileName : "src/com/theproductengine/Main.hx", lineNumber : 75, className : "com.theproductengine.Main", methodName : "new"});
+			};
+		})(st_b));
+		this.addChild(textField);
+		++i;
+	}
 };
 $hxClasses["com.theproductengine.Main"] = com_theproductengine_Main;
 com_theproductengine_Main.__name__ = "com.theproductengine.Main";
 com_theproductengine_Main.__super__ = openfl_display_Sprite;
 com_theproductengine_Main.prototype = $extend(openfl_display_Sprite.prototype,{
-	changeTextOfMainTab: function(text) {
-		var mainTab = js_Boot.__cast(this.getChildAt(this.index) , openfl_text_TextField);
-		mainTab.replaceText(0,mainTab.get_text().length,text);
-		haxe_Log.trace("asdasd",{ fileName : "src/com/theproductengine/Main.hx", lineNumber : 96, className : "com.theproductengine.Main", methodName : "changeTextOfMainTab"});
+	changeTextOfMainTab: function(text,field) {
+		this.mainTab.replaceText(0,this.mainTab.get_text().length,text);
+		this.changeColorForTabLater(field);
+	}
+	,changeColorForTabLater: function(tab) {
+		tab.set_backgroundColor(this.backgroundTabColor);
+		if(this.previousTab != null) {
+			this.previousTab.set_backgroundColor(this.backgroundThemeColor);
+		}
+		this.previousTab = tab;
 	}
 	,__class__: com_theproductengine_Main
 });
@@ -3912,6 +3903,162 @@ UInt.toFloat = function(this1) {
 	} else {
 		return int + 0.0;
 	}
+};
+var com_theproductengine_builder_TabBuilder = function() {
+};
+$hxClasses["com.theproductengine.builder.TabBuilder"] = com_theproductengine_builder_TabBuilder;
+com_theproductengine_builder_TabBuilder.__name__ = "com.theproductengine.builder.TabBuilder";
+com_theproductengine_builder_TabBuilder.prototype = {
+	setX: function(x) {
+		this.x = x;
+		return this;
+	}
+	,setY: function(y) {
+		this.y = y;
+		return this;
+	}
+	,setWidth: function(width) {
+		this.width = width;
+		return this;
+	}
+	,setHeight: function(height) {
+		this.height = height;
+		return this;
+	}
+	,setTextFormat: function(textFormat) {
+		this.textFormat = textFormat;
+		return this;
+	}
+	,setText: function(text) {
+		this.text = text;
+		return this;
+	}
+	,setBackground: function(background) {
+		this.background = background;
+		return this;
+	}
+	,setBackgroundColor: function(backgroundColor) {
+		this.backgroundColor = backgroundColor;
+		return this;
+	}
+	,setBorder: function(border) {
+		this.border = border;
+		return this;
+	}
+	,build: function() {
+		var textfield = new openfl_text_TextField();
+		textfield.set_border(this.border);
+		textfield.set_x(this.x);
+		textfield.set_y(this.y);
+		textfield.set_width(this.width);
+		textfield.set_height(this.height);
+		textfield.set_text(this.text);
+		textfield.setTextFormat(this.textFormat);
+		textfield.set_background(this.background);
+		textfield.set_backgroundColor(this.backgroundColor);
+		var tab = com_theproductengine_ui_Tab.fromTextField(textfield);
+		return tab;
+	}
+	,__class__: com_theproductengine_builder_TabBuilder
+};
+var com_theproductengine_builder_TabGroup = function(x,y,clearence,tab,amount,maxWidth,txtFrmt,backgroundTabColor) {
+	this.amount = amount;
+	this.x = x;
+	this.y = y;
+	this.clearence = clearence;
+	this.maxWidth = maxWidth;
+	this.example = tab;
+	this.tabs = [];
+	this.populateArray();
+	this.mainTab = new openfl_text_TextField();
+	this.mainTab.set_x(x);
+	this.mainTab.set_y(y + tab.getTextField().get_height());
+	this.mainTab.set_text("Some text");
+	this.mainTab.setTextFormat(txtFrmt);
+	this.mainTab.set_border(true);
+	this.mainTab.set_height(maxWidth / 2);
+	this.mainTab.set_width(maxWidth);
+	this.mainTab.set_background(true);
+	this.mainTab.set_backgroundColor(backgroundTabColor);
+};
+$hxClasses["com.theproductengine.builder.TabGroup"] = com_theproductengine_builder_TabGroup;
+com_theproductengine_builder_TabGroup.__name__ = "com.theproductengine.builder.TabGroup";
+com_theproductengine_builder_TabGroup.prototype = {
+	getTabs: function() {
+		return this.tabs;
+	}
+	,populateArray: function() {
+		var kWidth = (this.maxWidth - (this.amount - 1) * this.clearence * 2) / this.amount;
+		if(this.example.getTextField().get_width() > kWidth) {
+			this.example.getTextField().set_width(kWidth);
+		}
+		this.example.getTextField().set_y(this.y);
+		var previousX = 0;
+		var _g = 0;
+		var _g1 = this.amount;
+		while(_g < _g1) {
+			var i = _g++;
+			if(i == 0) {
+				this.example.getTextField().set_x(this.x);
+			} else {
+				this.example.getTextField().set_x(previousX + this.clearence + this.example.getTextField().get_width() + this.clearence);
+			}
+			this.tabs.push(this.example.clone());
+			previousX = this.example.getTextField().get_x();
+		}
+	}
+	,getMainTextField: function() {
+		return this.mainTab;
+	}
+	,__class__: com_theproductengine_builder_TabGroup
+};
+var com_theproductengine_interfaces_Cloneable = function() { };
+$hxClasses["com.theproductengine.interfaces.Cloneable"] = com_theproductengine_interfaces_Cloneable;
+com_theproductengine_interfaces_Cloneable.__name__ = "com.theproductengine.interfaces.Cloneable";
+com_theproductengine_interfaces_Cloneable.__isInterface__ = true;
+com_theproductengine_interfaces_Cloneable.prototype = {
+	__class__: com_theproductengine_interfaces_Cloneable
+};
+var com_theproductengine_ui_Tab = function() {
+	this.textfield = new openfl_text_TextField();
+};
+$hxClasses["com.theproductengine.ui.Tab"] = com_theproductengine_ui_Tab;
+com_theproductengine_ui_Tab.__name__ = "com.theproductengine.ui.Tab";
+com_theproductengine_ui_Tab.__interfaces__ = [com_theproductengine_interfaces_Cloneable];
+com_theproductengine_ui_Tab.fromTextField = function(textField) {
+	var tab = new com_theproductengine_ui_Tab();
+	tab.textfield.set_border(textField.get_border());
+	tab.textfield.set_x(textField.get_x());
+	tab.textfield.set_y(textField.get_y());
+	tab.textfield.set_width(textField.get_width());
+	tab.textfield.set_height(textField.get_height());
+	tab.textfield.set_text(textField.get_text());
+	tab.textfield.setTextFormat(textField.getTextFormat());
+	tab.textfield.set_background(textField.get_background());
+	tab.textfield.set_backgroundColor(textField.get_backgroundColor());
+	return tab;
+};
+com_theproductengine_ui_Tab.builder = function() {
+	return new com_theproductengine_builder_TabBuilder();
+};
+com_theproductengine_ui_Tab.prototype = {
+	getTextField: function() {
+		return this.textfield;
+	}
+	,clone: function() {
+		var clonedTextfield = new openfl_text_TextField();
+		clonedTextfield.set_border(this.textfield.get_border());
+		clonedTextfield.set_x(this.textfield.get_x());
+		clonedTextfield.set_y(this.textfield.get_y());
+		clonedTextfield.set_width(this.textfield.get_width());
+		clonedTextfield.set_height(this.textfield.get_height());
+		clonedTextfield.set_text(this.textfield.get_text());
+		clonedTextfield.setTextFormat(this.textfield.getTextFormat());
+		clonedTextfield.set_background(this.textfield.get_background());
+		clonedTextfield.set_backgroundColor(this.textfield.get_backgroundColor());
+		return com_theproductengine_ui_Tab.fromTextField(this.textfield);
+	}
+	,__class__: com_theproductengine_ui_Tab
 };
 var haxe_StackItem = $hxEnums["haxe.StackItem"] = { __ename__:"haxe.StackItem",__constructs__:null
 	,CFunction: {_hx_name:"CFunction",_hx_index:0,__enum__:"haxe.StackItem",toString:$estr}
@@ -22905,7 +23052,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 997381;
+	this.version = 101641;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";

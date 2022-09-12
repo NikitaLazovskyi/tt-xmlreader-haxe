@@ -5,11 +5,11 @@
 #include <hxcpp.h>
 #endif
 
-#ifndef INCLUDED_com_zalupa_Main
-#include <com/zalupa/Main.h>
+#ifndef INCLUDED_com_theproductengine_Main
+#include <com/theproductengine/Main.h>
 #endif
 HX_DECLARE_CLASS0(DocumentClass)
-HX_DECLARE_CLASS2(com,zalupa,Main)
+HX_DECLARE_CLASS2(com,theproductengine,Main)
 HX_DECLARE_CLASS2(openfl,display,DisplayObject)
 HX_DECLARE_CLASS2(openfl,display,DisplayObjectContainer)
 HX_DECLARE_CLASS2(openfl,display,IBitmapDrawable)
@@ -20,10 +20,10 @@ HX_DECLARE_CLASS2(openfl,events,IEventDispatcher)
 
 
 
-class HXCPP_CLASS_ATTRIBUTES DocumentClass_obj : public  ::com::zalupa::Main_obj
+class HXCPP_CLASS_ATTRIBUTES DocumentClass_obj : public  ::com::theproductengine::Main_obj
 {
 	public:
-		typedef  ::com::zalupa::Main_obj super;
+		typedef  ::com::theproductengine::Main_obj super;
 		typedef DocumentClass_obj OBJ_;
 		DocumentClass_obj();
 

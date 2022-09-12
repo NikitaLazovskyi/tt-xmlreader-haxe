@@ -2052,6 +2052,18 @@
 #ifndef INCLUDED_cpp_Lib
 #include <cpp/Lib.h>
 #endif
+#ifndef INCLUDED_com_theproductengine_ui_Tab
+#include <com/theproductengine/ui/Tab.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_interfaces_Cloneable
+#include <com/theproductengine/interfaces/Cloneable.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_builder_TabGroup
+#include <com/theproductengine/builder/TabGroup.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_builder_TabBuilder
+#include <com/theproductengine/builder/TabBuilder.h>
+#endif
 #ifndef INCLUDED_Type
 #include <Type.h>
 #endif
@@ -2082,8 +2094,8 @@
 #ifndef INCLUDED_DocumentClass
 #include <DocumentClass.h>
 #endif
-#ifndef INCLUDED_com_zalupa_Main
-#include <com/zalupa/Main.h>
+#ifndef INCLUDED_com_theproductengine_Main
+#include <com/theproductengine/Main.h>
 #endif
 #ifndef INCLUDED_openfl_display_Sprite
 #include <openfl/display/Sprite.h>
@@ -2815,6 +2827,10 @@ __files__boot();
 ::haxe::Exception_obj::__register();
 ::haxe::_CallStack::CallStack_Impl__obj::__register();
 ::cpp::Lib_obj::__register();
+::com::theproductengine::ui::Tab_obj::__register();
+::com::theproductengine::interfaces::Cloneable_obj::__register();
+::com::theproductengine::builder::TabGroup_obj::__register();
+::com::theproductengine::builder::TabBuilder_obj::__register();
 ::Type_obj::__register();
 ::Sys_obj::__register();
 ::StringTools_obj::__register();
@@ -2825,7 +2841,7 @@ __files__boot();
 ::EReg_obj::__register();
 ::Date_obj::__register();
 ::DocumentClass_obj::__register();
-::com::zalupa::Main_obj::__register();
+::com::theproductengine::Main_obj::__register();
 ::openfl::display::Sprite_obj::__register();
 ::openfl::display::DisplayObjectContainer_obj::__register();
 ::openfl::display::InteractiveObject_obj::__register();

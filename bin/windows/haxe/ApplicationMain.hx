@@ -16,11 +16,11 @@ class ApplicationMain
 	#if !macro
 	public static function main()
 	{
-		lime.system.System.__registerEntryPoint("Hello-World", create);
+		lime.system.System.__registerEntryPoint("technical-task-lazovskyi", create);
 
 		#if (js && html5)
 		#if (munit || utest)
-		lime.system.System.embed("Hello-World", null, 800, 480);
+		lime.system.System.embed("technical-task-lazovskyi", null, 800, 480);
 		#end
 		#else
 		create(null);
@@ -35,11 +35,11 @@ class ApplicationMain
 		ManifestResources.init(config);
 		#end
 
-		app.meta["build"] = "8";
+		app.meta["build"] = "1";
 		app.meta["company"] = "Nikko";
-		app.meta["file"] = "Hello-World";
-		app.meta["name"] = "Hello-World";
-		app.meta["packageName"] = "com.zalupa.Hello-World";
+		app.meta["file"] = "technical-task-lazovskyi";
+		app.meta["name"] = "TTLazovskyi";
+		app.meta["packageName"] = "com.theproductengine.TTLazovskyi";
 		app.meta["version"] = "1.0.0";
 
 		
@@ -60,7 +60,7 @@ class ApplicationMain
 			minimized: false,
 			parameters: {},
 			resizable: true,
-			title: "Hello-World",
+			title: "TTLazovskyi",
 			width: 800,
 			x: null,
 			y: null,
@@ -183,7 +183,7 @@ class ApplicationMain
 	{
 		var hasMain = false;
 
-		switch (Context.follow(Context.getType("com.zalupa.Main")))
+		switch (Context.follow(Context.getType("com.theproductengine.Main")))
 		{
 			case TInst(t, params):
 
@@ -199,7 +199,7 @@ class ApplicationMain
 
 				if (hasMain)
 				{
-					return Context.parse("@:privateAccess com.zalupa.Main.main()", Context.currentPos());
+					return Context.parse("@:privateAccess com.theproductengine.Main.main()", Context.currentPos());
 				}
 				else if (type.constructor != null)
 				{
@@ -218,12 +218,12 @@ class ApplicationMain
 				}
 				else
 				{
-					Context.fatalError("Main class \"com.zalupa.Main\" has neither a static main nor a constructor.", Context.currentPos());
+					Context.fatalError("Main class \"com.theproductengine.Main\" has neither a static main nor a constructor.", Context.currentPos());
 				}
 
 			default:
 
-				Context.fatalError("Main class \"com.zalupa.Main\" isn't a class.", Context.currentPos());
+				Context.fatalError("Main class \"com.theproductengine.Main\" isn't a class.", Context.currentPos());
 		}
 
 		return null;
@@ -285,7 +285,7 @@ class ApplicationMain
 
 #if !macro
 @:build(DocumentClass.build())
-@:keep @:dox(hide) class DocumentClass extends com.zalupa.Main {}
+@:keep @:dox(hide) class DocumentClass extends com.theproductengine.Main {}
 #else
 class DocumentClass
 {

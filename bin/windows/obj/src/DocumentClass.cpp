@@ -3,8 +3,8 @@
 #ifndef INCLUDED_DocumentClass
 #include <DocumentClass.h>
 #endif
-#ifndef INCLUDED_com_zalupa_Main
-#include <com/zalupa/Main.h>
+#ifndef INCLUDED_com_theproductengine_Main
+#include <com/theproductengine/Main.h>
 #endif
 #ifndef INCLUDED_openfl_display_DisplayObject
 #include <openfl/display/DisplayObject.h>
@@ -52,21 +52,21 @@ Dynamic DocumentClass_obj::__Create(::hx::DynamicArray inArgs)
 }
 
 bool DocumentClass_obj::_hx_isInstanceOf(int inClassId) {
-	if (inClassId<=(int)0x1f4df417) {
-		if (inClassId<=(int)0x0c89e854) {
+	if (inClassId<=(int)0x1a4abc3d) {
+		if (inClassId<=(int)0x07c3d5b2) {
 			if (inClassId<=(int)0x0330636f) {
 				return inClassId==(int)0x00000001 || inClassId==(int)0x0330636f;
 			} else {
-				return inClassId==(int)0x0c89e854;
+				return inClassId==(int)0x07c3d5b2;
 			}
 		} else {
-			return inClassId==(int)0x1a4abc3d || inClassId==(int)0x1f4df417;
+			return inClassId==(int)0x0c89e854 || inClassId==(int)0x1a4abc3d;
 		}
 	} else {
-		if (inClassId<=(int)0x6b353933) {
-			return inClassId==(int)0x4af7dd8e || inClassId==(int)0x6b353933;
+		if (inClassId<=(int)0x4af7dd8e) {
+			return inClassId==(int)0x1f4df417 || inClassId==(int)0x4af7dd8e;
 		} else {
-			return inClassId==(int)0x7f6fa203;
+			return inClassId==(int)0x6b353933;
 		}
 	}
 }

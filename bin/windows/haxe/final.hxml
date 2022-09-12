@@ -25,5 +25,5 @@
 --remap flash:openfl
 -cp bin/windows/haxe
 -cpp bin/windows/obj
---macro keep("com.zalupa.Main")
+--macro keep("com.theproductengine.Main")
 -D final

@@ -1,9 +1,7 @@
 package com.theproductengine.ui;
 import com.theproductengine.builder.TabBuilder;
 import com.theproductengine.interfaces.Cloneable;
-import flash.filters.GlowFilter;
 import openfl.text.TextField;
-import openfl.text.TextFormat;
 
 /**
  * ...

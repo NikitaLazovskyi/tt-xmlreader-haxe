@@ -5581,6 +5581,45 @@
    <depend name="include/cpp/Lib.h"/>
    <depend name="include/haxe/Exception.h"/>
   </file>
+  <file name="src/com/theproductengine/ui/Tab.cpp" >
+   <depend name="include/com/theproductengine/builder/TabBuilder.h"/>
+   <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
+   <depend name="include/com/theproductengine/ui/Tab.h"/>
+   <depend name="include/openfl/display/DisplayObject.h"/>
+   <depend name="include/openfl/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/display/InteractiveObject.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/text/TextField.h"/>
+   <depend name="include/openfl/text/TextFormat.h"/>
+  </file>
+  <file name="src/com/theproductengine/interfaces/Cloneable.cpp" >
+   <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
+  </file>
+  <file name="src/com/theproductengine/builder/TabGroup.cpp" >
+   <depend name="include/com/theproductengine/builder/TabGroup.h"/>
+   <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
+   <depend name="include/com/theproductengine/ui/Tab.h"/>
+   <depend name="include/openfl/display/DisplayObject.h"/>
+   <depend name="include/openfl/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/display/InteractiveObject.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/text/TextField.h"/>
+   <depend name="include/openfl/text/TextFormat.h"/>
+  </file>
+  <file name="src/com/theproductengine/builder/TabBuilder.cpp" >
+   <depend name="include/com/theproductengine/builder/TabBuilder.h"/>
+   <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
+   <depend name="include/com/theproductengine/ui/Tab.h"/>
+   <depend name="include/openfl/display/DisplayObject.h"/>
+   <depend name="include/openfl/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/display/InteractiveObject.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/text/TextField.h"/>
+   <depend name="include/openfl/text/TextFormat.h"/>
+  </file>
   <file name="src/Type.cpp" >
    <depend name="include/Reflect.h"/>
    <depend name="include/Type.h"/>
@@ -5632,7 +5671,7 @@
   </file>
   <file name="src/DocumentClass.cpp" >
    <depend name="include/DocumentClass.h"/>
-   <depend name="include/com/zalupa/Main.h"/>
+   <depend name="include/com/theproductengine/Main.h"/>
    <depend name="include/openfl/display/DisplayObject.h"/>
    <depend name="include/openfl/display/DisplayObjectContainer.h"/>
    <depend name="include/openfl/display/IBitmapDrawable.h"/>
@@ -5642,16 +5681,26 @@
    <depend name="include/openfl/events/EventDispatcher.h"/>
    <depend name="include/openfl/events/IEventDispatcher.h"/>
   </file>
-  <file name="src/com/zalupa/Main.cpp" >
-   <depend name="include/com/zalupa/Main.h"/>
-   <depend name="include/haxe/Log.h"/>
+  <file name="src/com/theproductengine/Main.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/com/theproductengine/Main.h"/>
+   <depend name="include/com/theproductengine/builder/TabBuilder.h"/>
+   <depend name="include/com/theproductengine/builder/TabGroup.h"/>
+   <depend name="include/com/theproductengine/interfaces/Cloneable.h"/>
+   <depend name="include/com/theproductengine/ui/Tab.h"/>
    <depend name="include/openfl/display/DisplayObject.h"/>
    <depend name="include/openfl/display/DisplayObjectContainer.h"/>
+   <depend name="include/openfl/display/Graphics.h"/>
    <depend name="include/openfl/display/IBitmapDrawable.h"/>
    <depend name="include/openfl/display/InteractiveObject.h"/>
    <depend name="include/openfl/display/Sprite.h"/>
+   <depend name="include/openfl/events/Event.h"/>
    <depend name="include/openfl/events/EventDispatcher.h"/>
    <depend name="include/openfl/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/events/MouseEvent.h"/>
+   <depend name="include/openfl/text/TextField.h"/>
+   <depend name="include/openfl/text/TextFormat.h"/>
   </file>
   <file name="src/openfl/display/Sprite.cpp" tags="haxe,release">
    <depend name="include/lime/app/IModule.h"/>
@@ -5807,7 +5856,7 @@
    <depend name="include/DocumentClass.h"/>
    <depend name="include/Reflect.h"/>
    <depend name="include/Std.h"/>
-   <depend name="include/com/zalupa/Main.h"/>
+   <depend name="include/com/theproductengine/Main.h"/>
    <depend name="include/haxe/Exception.h"/>
    <depend name="include/haxe/IMap.h"/>
    <depend name="include/haxe/ds/StringMap.h"/>

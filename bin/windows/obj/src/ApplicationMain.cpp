@@ -12,8 +12,8 @@
 #ifndef INCLUDED_Std
 #include <Std.h>
 #endif
-#ifndef INCLUDED_com_zalupa_Main
-#include <com/zalupa/Main.h>
+#ifndef INCLUDED_com_theproductengine_Main
+#include <com/theproductengine/Main.h>
 #endif
 #ifndef INCLUDED_haxe_Exception
 #include <haxe/Exception.h>
@@ -133,7 +133,7 @@ HXDLIN( 245)		 ::Dynamic init = ::hx::ClassOf< ::lime::app::Application >();
 
 void ApplicationMain_obj::main(){
             	HX_STACKFRAME(&_hx_pos_6fcf922b66429816_18_main)
-HXLINE(  19)		::lime::_hx_system::System_obj::_hx___registerEntryPoint(HX_("Hello-World",57,a7,7f,a2),::ApplicationMain_obj::create_dyn());
+HXLINE(  19)		::lime::_hx_system::System_obj::_hx___registerEntryPoint(HX_("technical-task-lazovskyi",dc,d5,a7,2e),::ApplicationMain_obj::create_dyn());
 HXLINE(  26)		::ApplicationMain_obj::create(null());
             	}
 
@@ -164,11 +164,11 @@ HXLINE( 119)			::ApplicationMain_obj::start(stage);
 
             	HX_GC_STACKFRAME(&_hx_pos_6fcf922b66429816_31_create)
 HXLINE(  32)		 ::openfl::display::Application app =  ::openfl::display::Application_obj::__alloc( HX_CTX );
-HXLINE(  38)		app->meta->set(HX_("build",2e,db,ea,ba),HX_("8",38,00,00,00));
+HXLINE(  38)		app->meta->set(HX_("build",2e,db,ea,ba),HX_("1",31,00,00,00));
 HXLINE(  39)		app->meta->set(HX_("company",3d,15,69,83),HX_("Nikko",54,35,fa,2e));
-HXLINE(  40)		app->meta->set(HX_("file",7c,ce,bb,43),HX_("Hello-World",57,a7,7f,a2));
-HXLINE(  41)		app->meta->set(HX_("name",4b,72,ff,48),HX_("Hello-World",57,a7,7f,a2));
-HXLINE(  42)		app->meta->set(HX_("packageName",f1,04,ad,04),HX_("com.zalupa.Hello-World",57,16,c9,02));
+HXLINE(  40)		app->meta->set(HX_("file",7c,ce,bb,43),HX_("technical-task-lazovskyi",dc,d5,a7,2e));
+HXLINE(  41)		app->meta->set(HX_("name",4b,72,ff,48),HX_("TTLazovskyi",94,2d,a8,1d));
+HXLINE(  42)		app->meta->set(HX_("packageName",f1,04,ad,04),HX_("com.theproductengine.TTLazovskyi",93,23,46,4a));
 HXLINE(  43)		app->meta->set(HX_("version",18,e7,f1,7c),HX_("1.0.0",b5,d1,2e,55));
 HXLINE(  49)		 ::Dynamic attributes =  ::Dynamic(::hx::Anon_obj::Create(16)
             			->setFixed(0,HX_("resizable",6b,37,50,a9),true)
@@ -180,7 +180,7 @@ HXLINE(  49)		 ::Dynamic attributes =  ::Dynamic(::hx::Anon_obj::Create(16)
             			->setFixed(6,HX_("y",79,00,00,00),null())
             			->setFixed(7,HX_("height",e7,07,4c,02),480)
             			->setFixed(8,HX_("element",bc,ae,54,06),null())
-            			->setFixed(9,HX_("title",98,15,3b,10),HX_("Hello-World",57,a7,7f,a2))
+            			->setFixed(9,HX_("title",98,15,3b,10),HX_("TTLazovskyi",94,2d,a8,1d))
             			->setFixed(10,HX_("alwaysOnTop",67,4d,53,16),false)
             			->setFixed(11,HX_("borderless",45,46,71,17),false)
             			->setFixed(12,HX_("minimized",86,fb,9d,28),false)
