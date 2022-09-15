@@ -22,9 +22,6 @@ class ScrollBarH
 	private var rectOuterH:Sprite;
 	private var indexOutRect:Int;
 	private var indexInRect:Int;
-	//private var buttonColor:Int = 0x1D436D;
-	//private var secondaryColor:Int = 0xB1CDEB;
-	//private var lineColor:Int = 0x0F0F35;
 
 	private var scrollK:Int = 100;
 
@@ -44,7 +41,7 @@ class ScrollBarH
 		rectInnerBoxH = new Sprite();
 		rectInnerBoxH.graphics.beginFill(txtFld.backgroundColor+0xAAAAAA);
 		rectOuterH.graphics.lineStyle(1, txtFld.borderColor);
-		rectInnerBoxH.graphics.drawRect(txtFld.x, txtFld.y + txtFld.height, (txtFld.width / (txtFld.maxScrollH / scrollK)), scrollButton);
+		rectInnerBoxH.graphics.drawRect(txtFld.x, txtFld.y + txtFld.height, ((txtFld.width ) / txtFld.maxScrollH) * scrollK, scrollButton);
 		rectInnerBoxH.graphics.endFill();
 
 		xLeftLimit = 0 * rectInnerBoxH.width;
@@ -76,10 +73,11 @@ class ScrollBarH
 
 	private function dragBar (event:MouseEvent):Void
 	{
+		//trace('event.stage:${event.stageX} offsetX:${offsetX} rectInnerBoxH.x:${rectInnerBoxH.x} txtFld.scrollH:${txtFld.scrollH} txtFld.maxScrollH:${txtFld.maxScrollH}');
 		if (event.stageX - offsetX > xLeftLimit && event.stageX - offsetX < xRightLimit)
 		{
 			rectInnerBoxH.x = event.stageX - offsetX;
-			txtFld.scrollH = Math.round((((rectInnerBoxH.x - offsetX) / (txtFld.width / txtFld.maxScrollH) ) + offsetX ) * 1.1  );
+			txtFld.scrollH = Math.round(rectInnerBoxH.x / (txtFld.width  / (txtFld.maxScrollH + (scrollK *2))));
 			event.updateAfterEvent();
 		}
 	}

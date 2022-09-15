@@ -7,6 +7,9 @@
 #ifndef INCLUDED_com_theproductengine_scrollbar_ScrollBarH
 #include <com/theproductengine/scrollbar/ScrollBarH.h>
 #endif
+#ifndef INCLUDED_haxe_Log
+#include <haxe/Log.h>
+#endif
 #ifndef INCLUDED_openfl_display_DisplayObject
 #include <openfl/display/DisplayObject.h>
 #endif
@@ -46,9 +49,9 @@ HX_DEFINE_STACK_FRAME(_hx_pos_6ae72151139bf69f_59_new,"com.theproductengine.scro
 HX_DEFINE_STACK_FRAME(_hx_pos_6ae72151139bf69f_12_new,"com.theproductengine.scrollbar.ScrollBarH","new",0xa2a191fd,"com.theproductengine.scrollbar.ScrollBarH.new","com/theproductengine/scrollbar/ScrollBarH.hx",12,0x593abc92)
 HX_LOCAL_STACK_FRAME(_hx_pos_6ae72151139bf69f_67_startDragging,"com.theproductengine.scrollbar.ScrollBarH","startDragging",0x5818672e,"com.theproductengine.scrollbar.ScrollBarH.startDragging","com/theproductengine/scrollbar/ScrollBarH.hx",67,0x593abc92)
 HX_LOCAL_STACK_FRAME(_hx_pos_6ae72151139bf69f_74_stopDragging,"com.theproductengine.scrollbar.ScrollBarH","stopDragging",0xe70a5db4,"com.theproductengine.scrollbar.ScrollBarH.stopDragging","com/theproductengine/scrollbar/ScrollBarH.hx",74,0x593abc92)
-HX_LOCAL_STACK_FRAME(_hx_pos_6ae72151139bf69f_79_dragBar,"com.theproductengine.scrollbar.ScrollBarH","dragBar",0xf9e2825c,"com.theproductengine.scrollbar.ScrollBarH.dragBar","com/theproductengine/scrollbar/ScrollBarH.hx",79,0x593abc92)
-HX_LOCAL_STACK_FRAME(_hx_pos_6ae72151139bf69f_89_getRectOuter,"com.theproductengine.scrollbar.ScrollBarH","getRectOuter",0x0e64f804,"com.theproductengine.scrollbar.ScrollBarH.getRectOuter","com/theproductengine/scrollbar/ScrollBarH.hx",89,0x593abc92)
-HX_LOCAL_STACK_FRAME(_hx_pos_6ae72151139bf69f_94_getRectInner,"com.theproductengine.scrollbar.ScrollBarH","getRectInner",0x9558711f,"com.theproductengine.scrollbar.ScrollBarH.getRectInner","com/theproductengine/scrollbar/ScrollBarH.hx",94,0x593abc92)
+HX_LOCAL_STACK_FRAME(_hx_pos_6ae72151139bf69f_78_dragBar,"com.theproductengine.scrollbar.ScrollBarH","dragBar",0xf9e2825c,"com.theproductengine.scrollbar.ScrollBarH.dragBar","com/theproductengine/scrollbar/ScrollBarH.hx",78,0x593abc92)
+HX_LOCAL_STACK_FRAME(_hx_pos_6ae72151139bf69f_90_getRectOuter,"com.theproductengine.scrollbar.ScrollBarH","getRectOuter",0x0e64f804,"com.theproductengine.scrollbar.ScrollBarH.getRectOuter","com/theproductengine/scrollbar/ScrollBarH.hx",90,0x593abc92)
+HX_LOCAL_STACK_FRAME(_hx_pos_6ae72151139bf69f_95_getRectInner,"com.theproductengine.scrollbar.ScrollBarH","getRectInner",0x9558711f,"com.theproductengine.scrollbar.ScrollBarH.getRectInner","com/theproductengine/scrollbar/ScrollBarH.hx",95,0x593abc92)
 namespace com{
 namespace theproductengine{
 namespace scrollbar{
@@ -97,8 +100,8 @@ HXDLIN(  47)		Float _hx_tmp9 = txtFld->get_x();
 HXDLIN(  47)		Float _hx_tmp10 = txtFld->get_y();
 HXDLIN(  47)		Float _hx_tmp11 = (_hx_tmp10 + txtFld->get_height());
 HXDLIN(  47)		Float _hx_tmp12 = txtFld->get_width();
-HXDLIN(  47)		int _hx_tmp13 = txtFld->get_maxScrollH();
-HXDLIN(  47)		_hx_tmp8->drawRect(_hx_tmp9,_hx_tmp11,(_hx_tmp12 / (( (Float)(_hx_tmp13) ) / ( (Float)(this->scrollK) ))),( (Float)(scrollButton) ));
+HXDLIN(  47)		Float _hx_tmp13 = (_hx_tmp12 / ( (Float)(txtFld->get_maxScrollH()) ));
+HXDLIN(  47)		_hx_tmp8->drawRect(_hx_tmp9,_hx_tmp11,(_hx_tmp13 * ( (Float)(this->scrollK) )),( (Float)(scrollButton) ));
 HXLINE(  48)		this->rectInnerBoxH->get_graphics()->endFill();
 HXLINE(  50)		this->xLeftLimit = (( (Float)(0) ) * this->rectInnerBoxH->get_width());
 HXLINE(  51)		int _hx_tmp14 = txtFld->get_maxScrollH();
@@ -145,23 +148,28 @@ HXDLIN(  74)		this->parent->removeEventListener(HX_("mouseMove",d6,9b,b5,f4),thi
 HX_DEFINE_DYNAMIC_FUNC1(ScrollBarH_obj,stopDragging,(void))
 
 void ScrollBarH_obj::dragBar( ::openfl::events::MouseEvent event){
-            	HX_STACKFRAME(&_hx_pos_6ae72151139bf69f_79_dragBar)
-HXDLIN(  79)		bool _hx_tmp;
-HXDLIN(  79)		if (((event->stageX - this->offsetX) > this->xLeftLimit)) {
-HXDLIN(  79)			_hx_tmp = ((event->stageX - this->offsetX) < this->xRightLimit);
+            	HX_STACKFRAME(&_hx_pos_6ae72151139bf69f_78_dragBar)
+HXLINE(  79)		 ::Dynamic _hx_tmp = ::haxe::Log_obj::trace;
+HXDLIN(  79)		::String _hx_tmp1 = ((((HX_("event.stage:",90,21,d1,41) + event->stageX) + HX_(" offsetX:",55,4f,30,ff)) + this->offsetX) + HX_(" rectInnerBoxH.x:",21,c1,45,90));
+HXDLIN(  79)		::String _hx_tmp2 = ((_hx_tmp1 + this->rectInnerBoxH->get_x()) + HX_(" txtFld.scrollH:",bf,58,7b,2d));
+HXDLIN(  79)		::String _hx_tmp3 = ((_hx_tmp2 + this->txtFld->get_scrollH()) + HX_(" txtFld.maxScrollH:",83,6a,a6,8a));
+HXDLIN(  79)		::String _hx_tmp4 = (_hx_tmp3 + this->txtFld->get_maxScrollH());
+HXDLIN(  79)		_hx_tmp(_hx_tmp4,::hx::SourceInfo(HX_("src/com/theproductengine/scrollbar/ScrollBarH.hx",dd,ad,c5,37),79,HX_("com.theproductengine.scrollbar.ScrollBarH",8b,cf,9f,cd),HX_("dragBar",3f,2e,37,f1)));
+HXLINE(  80)		bool _hx_tmp5;
+HXDLIN(  80)		if (((event->stageX - this->offsetX) > this->xLeftLimit)) {
+HXLINE(  80)			_hx_tmp5 = ((event->stageX - this->offsetX) < this->xRightLimit);
             		}
             		else {
-HXDLIN(  79)			_hx_tmp = false;
+HXLINE(  80)			_hx_tmp5 = false;
             		}
-HXDLIN(  79)		if (_hx_tmp) {
-HXLINE(  81)			this->rectInnerBoxH->set_x((event->stageX - this->offsetX));
-HXLINE(  82)			 ::openfl::text::TextField _hx_tmp = this->txtFld;
-HXDLIN(  82)			Float _hx_tmp1 = this->rectInnerBoxH->get_x();
-HXDLIN(  82)			Float _hx_tmp2 = (_hx_tmp1 - this->offsetX);
-HXDLIN(  82)			Float _hx_tmp3 = this->txtFld->get_width();
-HXDLIN(  82)			Float _hx_tmp4 = (_hx_tmp2 / (_hx_tmp3 / ( (Float)(this->txtFld->get_maxScrollH()) )));
-HXDLIN(  82)			_hx_tmp->set_scrollH(::Math_obj::round(((_hx_tmp4 + this->offsetX) * ((Float)1.1))));
-HXLINE(  83)			event->updateAfterEvent();
+HXDLIN(  80)		if (_hx_tmp5) {
+HXLINE(  82)			this->rectInnerBoxH->set_x((event->stageX - this->offsetX));
+HXLINE(  83)			 ::openfl::text::TextField _hx_tmp = this->txtFld;
+HXDLIN(  83)			Float _hx_tmp1 = this->rectInnerBoxH->get_x();
+HXDLIN(  83)			Float _hx_tmp2 = this->txtFld->get_width();
+HXDLIN(  83)			int _hx_tmp3 = this->txtFld->get_maxScrollH();
+HXDLIN(  83)			_hx_tmp->set_scrollH(::Math_obj::round((_hx_tmp1 / (_hx_tmp2 / ( (Float)((_hx_tmp3 + (this->scrollK * 2))) )))));
+HXLINE(  84)			event->updateAfterEvent();
             		}
             	}
 
@@ -169,16 +177,16 @@ HXLINE(  83)			event->updateAfterEvent();
 HX_DEFINE_DYNAMIC_FUNC1(ScrollBarH_obj,dragBar,(void))
 
  ::openfl::display::Sprite ScrollBarH_obj::getRectOuter(){
-            	HX_STACKFRAME(&_hx_pos_6ae72151139bf69f_89_getRectOuter)
-HXDLIN(  89)		return this->rectOuterH;
+            	HX_STACKFRAME(&_hx_pos_6ae72151139bf69f_90_getRectOuter)
+HXDLIN(  90)		return this->rectOuterH;
             	}
 
 
 HX_DEFINE_DYNAMIC_FUNC0(ScrollBarH_obj,getRectOuter,return )
 
  ::openfl::display::Sprite ScrollBarH_obj::getRectInner(){
-            	HX_STACKFRAME(&_hx_pos_6ae72151139bf69f_94_getRectInner)
-HXDLIN(  94)		return this->rectInnerBoxH;
+            	HX_STACKFRAME(&_hx_pos_6ae72151139bf69f_95_getRectInner)
+HXDLIN(  95)		return this->rectInnerBoxH;
             	}
 
 

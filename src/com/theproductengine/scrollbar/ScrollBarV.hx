@@ -22,9 +22,6 @@ class ScrollBarV
 	private var rectOuterV:Sprite;
 	private var indexOutRect:Int;
 	private var indexInRect:Int;
-	//private var buttonColor:Int = 0x1D436D;
-	//private var secondaryColor:Int = 0xB1CDEB;
-	//private var lineColor:Int = 0x0F0F35;
 
 	public function new(txtFld:TextField, scrollButton:Int)
 	{
