@@ -12,8 +12,8 @@ C:\Users\Nikita\Documents\XMLInput
 ```
 
 ## 2. Download zip or clone repo
-- After downloading/cloning repo follow to the next `assests`
-and copy `test.xml` and paste it folder that we create in previous step.
+- After downloading/cloning repo follow to the `assests` folder
+and copy `test.xml`, then just paste it into the folder that we create in previous step.
 If you want read another XML file remember about XML-schema that located in `assets` folder. XML file must be names strictly `test.xml`
 
 ## 3. Run
