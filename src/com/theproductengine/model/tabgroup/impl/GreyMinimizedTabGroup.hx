@@ -12,6 +12,7 @@ import openfl.text.TextFormatAlign;
 class GreyMinimizedTabGroup extends TabGroupAbstract
 {
 	//inline static public var backgroundTabColor:Int = 0xAFB1B4;
+	private var scrollButton:Float = 20;
 
 	public function new(x:Float, y:Float, clearence:Float, tab:Tab, amount:Int, maxWidth:Float) 
 	{
@@ -41,7 +42,7 @@ class GreyMinimizedTabGroup extends TabGroupAbstract
 		mainTab.setTextFormat(txtFrmt);
 		mainTab.border = false;
 		mainTab.height = maxWidth/2.5;
-		mainTab.width = maxWidth;
+		mainTab.width = maxWidth-scrollButton;
 		mainTab.background = true;
 		mainTab.backgroundColor = backgroundTabColor;
 	}

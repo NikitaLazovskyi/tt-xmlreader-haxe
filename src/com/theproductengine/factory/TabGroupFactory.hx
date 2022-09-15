@@ -2,6 +2,7 @@ package com.theproductengine.factory;
 import com.theproductengine.model.tabgroup.TabGroupAbstract;
 import com.theproductengine.model.tabgroup.impl.BlueMediumTabGroup;
 import com.theproductengine.model.tabgroup.impl.GreyMinimizedTabGroup;
+import com.theproductengine.scrollbar.ScrollBar;
 import com.theproductengine.ui.Tab;
 import openfl.text.TextFormat;
 import openfl.text.TextFormatAlign;

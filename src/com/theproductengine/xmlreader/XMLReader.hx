@@ -10,7 +10,7 @@ import sys.io.File;
 
 /**
  * Working with directory User/Documents/XMLInput
- * If this directory doesn't exist then new one will be created
+ * If this directory doesn't exist the new one will be created
  * Locate in this directory any xml file.
  * @author Nikko
  */
@@ -33,7 +33,7 @@ class XMLReader
 			throw new ArgumentException('File $fileName not found');
 		}
 		var fileInput:FileInput = File.read(filePath, true);
-	
+
 		var st:StringBuf = new StringBuf();
 		while (!fileInput.eof()) 
 		{

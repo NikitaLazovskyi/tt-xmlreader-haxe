@@ -16,19 +16,22 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="D:\HaxeToolkit\haxe\lib\openfl\9,2,0\src" />
     <class path="D:\HaxeToolkit\haxe\lib\lime\8,0,0\src" />
+    <class path="D:\HaxeToolkit\haxe\lib\stablexui\1,2,4\src" />
+    <class path="D:\HaxeToolkit\haxe\lib\actuate\1,8,9\src" />
+    <class path="D:\HaxeToolkit\haxe\lib\hscript\2,5,0" />
+    <class path="D:\HaxeToolkit\haxe\lib\openfl\9,2,0\src" />
     <class path="src" />
     <class path="bin\neko\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="openfl=9.2.0&#xA;lime=8.0.0&#xA;lime-harfbuzz&#xA;lime-openal&#xA;tools=8.0.0&#xA;lime-cairo&#xA;lime-opengl&#xA;no-compilation&#xA;disable_preloader_assets=1&#xA;native&#xA;lime-curl&#xA;lime-native&#xA;lime-vorbis&#xA;openfl-native&#xA;lime-cffi&#xA;fdb&#xA;windows&#xA;desktop" />
+    <option directives="lime=8.0.0&#xA;stablexui=1.2.4&#xA;actuate=1.8.9&#xA;hscript=2.5.0&#xA;openfl=9.2.0&#xA;lime-harfbuzz&#xA;lime-openal&#xA;tools=8.0.0&#xA;lime-cairo&#xA;lime-opengl&#xA;no-compilation&#xA;disable_preloader_assets=1&#xA;native&#xA;lime-curl&#xA;lime-native&#xA;lime-vorbis&#xA;openfl-native&#xA;lime-cffi&#xA;fdb&#xA;windows&#xA;desktop" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="True" />
-    <option additional="--macro openfl.utils._internal.ExtraParamsMacro.include()&#xA;--macro lime._internal.macros.DefineMacro.run()&#xA;--remap flash:openfl" />
+    <option additional="--macro lime._internal.macros.DefineMacro.run()&#xA;--macro openfl.utils._internal.ExtraParamsMacro.include()&#xA;--remap flash:openfl" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
