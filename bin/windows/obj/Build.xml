@@ -5796,7 +5796,6 @@
   </file>
   <file name="src/com/theproductengine/scrollbar/ScrollBarH.cpp" >
    <depend name="include/com/theproductengine/scrollbar/ScrollBarH.h"/>
-   <depend name="include/haxe/Log.h"/>
    <depend name="include/openfl/display/DisplayObject.h"/>
    <depend name="include/openfl/display/DisplayObjectContainer.h"/>
    <depend name="include/openfl/display/Graphics.h"/>
