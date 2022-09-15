@@ -16,11 +16,11 @@ class ApplicationMain
 	#if !macro
 	public static function main()
 	{
-		lime.system.System.__registerEntryPoint("technical-task-lazovskyi", create);
+		lime.system.System.__registerEntryPoint("application", create);
 
 		#if (js && html5)
 		#if (munit || utest)
-		lime.system.System.embed("technical-task-lazovskyi", null, 800, 480);
+		lime.system.System.embed("application", null, 800, 480);
 		#end
 		#else
 		create(null);
@@ -35,11 +35,11 @@ class ApplicationMain
 		ManifestResources.init(config);
 		#end
 
-		app.meta["build"] = "8";
+		app.meta["build"] = "9";
 		app.meta["company"] = "Nikko";
-		app.meta["file"] = "technical-task-lazovskyi";
-		app.meta["name"] = "TTLazovskyi";
-		app.meta["packageName"] = "com.theproductengine.TTLazovskyi";
+		app.meta["file"] = "application";
+		app.meta["name"] = "application";
+		app.meta["packageName"] = "com.theproductengine.application";
 		app.meta["version"] = "1.0.0";
 
 		
@@ -60,7 +60,7 @@ class ApplicationMain
 			minimized: false,
 			parameters: {},
 			resizable: true,
-			title: "TTLazovskyi",
+			title: "application",
 			width: 800,
 			x: null,
 			y: null,

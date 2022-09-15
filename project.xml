@@ -3,10 +3,10 @@
 	<!-- NMML reference: https://gist.github.com/1763850 -->
 	
 	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
-	<meta title="TTLazovskyi" package="com.theproductengine.TTLazovskyi" version="1.0.0" company="Nikko" />
+	<meta title="application" package="com.theproductengine.application" version="1.0.0" company="Nikko" />
 	
 	<!-- output -->
-	<app main="com.theproductengine.Main" file="technical-task-lazovskyi" path="bin" />
+	<app main="com.theproductengine.Main" file="application" path="bin" />
 	
 	<window background="#000000" fps="60" />
 	<window width="800" height="480" unless="mobile" />
