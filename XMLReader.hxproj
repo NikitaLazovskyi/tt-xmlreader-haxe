@@ -22,7 +22,7 @@
     <class path="D:\HaxeToolkit\haxe\lib\hscript\2,5,0" />
     <class path="D:\HaxeToolkit\haxe\lib\openfl\9,2,0\src" />
     <class path="src" />
-    <class path="bin\neko\haxe" />
+    <class path="bin\windows\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>

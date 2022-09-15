@@ -69,6 +69,9 @@
 #ifndef INCLUDED_haxe_StackItem
 #include <haxe/StackItem.h>
 #endif
+#ifndef INCLUDED_com_theproductengine_factory_TabGroupType
+#include <com/theproductengine/factory/TabGroupType.h>
+#endif
 #ifndef INCLUDED_ValueType
 #include <ValueType.h>
 #endif
@@ -791,6 +794,9 @@
 #endif
 #ifndef INCLUDED_haxe_SysTools
 #include <haxe/SysTools.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_Main
+#include <com/theproductengine/Main.h>
 #endif
 #ifndef INCLUDED_openfl_display_DisplayObject
 #include <openfl/display/DisplayObject.h>
@@ -2106,17 +2112,29 @@
 #ifndef INCLUDED_com_theproductengine_ui_Tab
 #include <com/theproductengine/ui/Tab.h>
 #endif
+#ifndef INCLUDED_com_theproductengine_scrollbar_ScrollBarV
+#include <com/theproductengine/scrollbar/ScrollBarV.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_scrollbar_ScrollBarH
+#include <com/theproductengine/scrollbar/ScrollBarH.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_model_tabgroup_impl_GreyMinimizedTabGroup
+#include <com/theproductengine/model/tabgroup/impl/GreyMinimizedTabGroup.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_model_tabgroup_impl_BlueMediumTabGroup
+#include <com/theproductengine/model/tabgroup/impl/BlueMediumTabGroup.h>
+#endif
+#ifndef INCLUDED_com_theproductengine_model_tabgroup_TabGroupAbstract
+#include <com/theproductengine/model/tabgroup/TabGroupAbstract.h>
+#endif
 #ifndef INCLUDED_com_theproductengine_model_TabModel
 #include <com/theproductengine/model/TabModel.h>
-#endif
-#ifndef INCLUDED_com_theproductengine_model_TabGroup
-#include <com/theproductengine/model/TabGroup.h>
 #endif
 #ifndef INCLUDED_com_theproductengine_interfaces_Cloneable
 #include <com/theproductengine/interfaces/Cloneable.h>
 #endif
-#ifndef INCLUDED_com_theproductengine_factory_TabGroupAbstract
-#include <com/theproductengine/factory/TabGroupAbstract.h>
+#ifndef INCLUDED_com_theproductengine_factory_TabGroupFactory
+#include <com/theproductengine/factory/TabGroupFactory.h>
 #endif
 #ifndef INCLUDED_com_theproductengine_builder_TabBuilder
 #include <com/theproductengine/builder/TabBuilder.h>
@@ -2145,6 +2163,9 @@
 #ifndef INCLUDED_Lambda
 #include <Lambda.h>
 #endif
+#ifndef INCLUDED_IntIterator
+#include <IntIterator.h>
+#endif
 #ifndef INCLUDED_EReg
 #include <EReg.h>
 #endif
@@ -2153,9 +2174,6 @@
 #endif
 #ifndef INCLUDED_DocumentClass
 #include <DocumentClass.h>
-#endif
-#ifndef INCLUDED_com_theproductengine_Main
-#include <com/theproductengine/Main.h>
 #endif
 #ifndef INCLUDED_openfl_display_Sprite
 #include <openfl/display/Sprite.h>
@@ -2226,6 +2244,7 @@ __files__boot();
 ::haxe::io::Error_obj::__register();
 ::haxe::io::Encoding_obj::__register();
 ::haxe::StackItem_obj::__register();
+::com::theproductengine::factory::TabGroupType_obj::__register();
 ::ValueType_obj::__register();
 ::openfl::utils::_internal::TouchData_obj::__register();
 ::openfl::utils::_internal::Lib_obj::__register();
@@ -2467,6 +2486,7 @@ __files__boot();
 ::haxe::Log_obj::__register();
 ::Xml_obj::__register();
 ::haxe::SysTools_obj::__register();
+::com::theproductengine::Main_obj::__register();
 ::openfl::display::DisplayObject_obj::__register();
 ::openfl::_Vector::Vector_Impl__obj::__register();
 ::ApplicationMain_obj::__register();
@@ -2905,10 +2925,14 @@ __files__boot();
 ::cpp::Lib_obj::__register();
 ::com::theproductengine::xmlreader::XMLReader_obj::__register();
 ::com::theproductengine::ui::Tab_obj::__register();
+::com::theproductengine::scrollbar::ScrollBarV_obj::__register();
+::com::theproductengine::scrollbar::ScrollBarH_obj::__register();
+::com::theproductengine::model::tabgroup::impl::GreyMinimizedTabGroup_obj::__register();
+::com::theproductengine::model::tabgroup::impl::BlueMediumTabGroup_obj::__register();
+::com::theproductengine::model::tabgroup::TabGroupAbstract_obj::__register();
 ::com::theproductengine::model::TabModel_obj::__register();
-::com::theproductengine::model::TabGroup_obj::__register();
 ::com::theproductengine::interfaces::Cloneable_obj::__register();
-::com::theproductengine::factory::TabGroupAbstract_obj::__register();
+::com::theproductengine::factory::TabGroupFactory_obj::__register();
 ::com::theproductengine::builder::TabBuilder_obj::__register();
 ::_Xml::XmlType_Impl__obj::__register();
 ::Type_obj::__register();
@@ -2918,10 +2942,10 @@ __files__boot();
 ::Std_obj::__register();
 ::Reflect_obj::__register();
 ::Lambda_obj::__register();
+::IntIterator_obj::__register();
 ::EReg_obj::__register();
 ::Date_obj::__register();
 ::DocumentClass_obj::__register();
-::com::theproductengine::Main_obj::__register();
 ::openfl::display::Sprite_obj::__register();
 ::openfl::display::DisplayObjectContainer_obj::__register();
 ::openfl::display::InteractiveObject_obj::__register();
@@ -2958,6 +2982,7 @@ __files__boot();
 ::haxe::io::Error_obj::__boot();
 ::haxe::io::Encoding_obj::__boot();
 ::haxe::StackItem_obj::__boot();
+::com::theproductengine::factory::TabGroupType_obj::__boot();
 ::ValueType_obj::__boot();
 ::lime::_internal::backend::native::NativeApplication_obj::__init__();
 ::lime::app::Application_obj::__init__();
@@ -2973,6 +2998,7 @@ __files__boot();
 ::ApplicationMain_obj::__boot();
 ::openfl::_Vector::Vector_Impl__obj::__boot();
 ::openfl::display::DisplayObject_obj::__boot();
+::com::theproductengine::Main_obj::__boot();
 ::haxe::SysTools_obj::__boot();
 ::Xml_obj::__boot();
 ::haxe::Serializer_obj::__boot();
