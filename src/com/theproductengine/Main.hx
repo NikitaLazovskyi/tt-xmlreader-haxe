@@ -6,6 +6,7 @@ import com.theproductengine.factory.TabGroupFactory;
 import com.theproductengine.xmlreader.XMLReader;
 import openfl.display.Sprite;
 import com.theproductengine.model.TabModel;
+import openfl.events.MouseEvent;
 
 /**
  * ...
@@ -22,19 +23,19 @@ class Main extends Sprite
 		super();
 		var path = "test.xml";
 		var tabModelsData:Array<TabModel> = new XMLReader(path).getModels();
-		
+
 		var sprite:Sprite = new Sprite();
 		this.addChild(sprite);
-		
+
 		sprite.graphics.beginFill(backgroundThemeColor);
 		sprite.graphics.drawRect(0, 0, maxWidth, maxHeight);
 		sprite.graphics.endFill();
-		
+
 		var factory:TabGroupFactory = new TabGroupFactory(tabModelsData);
-		
-		//tabGroup = factory.getInstance(TabGroupType.GRAY_MINIMIZED);
+
+		//var tabGroup:TabGroupAbstract = factory.getInstance(TabGroupType.GRAY_MINIMIZED);
 		var tabGroup:TabGroupAbstract = factory.getInstance(TabGroupType.BLUE_MEDIUM);
-		
-		sprite.addChild(tabGroup.getMainSprite());		
+
+		sprite.addChild(tabGroup.getMainSprite());
 	}
 }

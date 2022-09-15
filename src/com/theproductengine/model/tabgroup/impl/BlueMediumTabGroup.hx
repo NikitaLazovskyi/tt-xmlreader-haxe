@@ -1,14 +1,12 @@
 package com.theproductengine.model.tabgroup.impl;
 
-import com.theproductengine.model.TabModel;
-import com.theproductengine.model.tabgroup.TabGroupAbstract;
-import com.theproductengine.scrollbar.ScrollBar;
-import com.theproductengine.ui.Tab;
-import openfl.display.Sprite;
-import openfl.text.TextField;
-import openfl.text.TextFormat;
-import openfl.text.TextFormatAlign;
-import openfl.events.MouseEvent;
+import com.theproductengine.model.*;
+import com.theproductengine.model.tabgroup.*;
+import com.theproductengine.scrollbar.*;
+import com.theproductengine.ui.*;
+import openfl.display.*;
+import openfl.events.*;
+import openfl.text.*;
 /**
  * ...
  * @author Nikko
@@ -16,26 +14,29 @@ import openfl.events.MouseEvent;
 class BlueMediumTabGroup extends TabGroupAbstract
 {
 	//inline static public var backgroundTabColor:Int = 0xB1CDEB;
-	private var scrollButton:Float = 20;
-	private var rectInnerBox:Sprite;
-	private var rectOuter:Sprite; 
+	private var scrollButton:Int = 20;
+	private var rectInnerBoxV:Sprite;
+	private var rectOuterV:Sprite;
+	private var rectInnerBoxH:Sprite;
+	private var rectOuterH:Sprite;
 	private var tabModelsData:Array<TabModel>;
 	private var previousTab:TextField;
 	private var secondaryColor:Int = 0xE9E9E9;
-	
-	public function new(x:Float, y:Float, clearence:Float, tab:Tab, tabModelsData:Array<TabModel>, maxWidth:Float) 
+	private var lineColor:Int = 0x0F0F35;
+
+	public function new(x:Float, y:Float, clearence:Float, tab:Tab, tabModelsData:Array<TabModel>, maxWidth:Float)
 	{
 		mainSprite = new Sprite();
 		this.tabModelsData = tabModelsData;
 
 		backgroundTabColor = 0xB1CDEB;
-		
-		var txtFrmt:TextFormat = new TextFormat();		
+
+		var txtFrmt:TextFormat = new TextFormat();
 		txtFrmt.align = TextFormatAlign.JUSTIFY;
 		txtFrmt.size = 20;
 		txtFrmt.leftMargin = 40;
 		txtFrmt.rightMargin = 40;
-		
+
 		this.amount = tabModelsData.length;
 		this.x = x;
 		this.y = y;
@@ -44,7 +45,7 @@ class BlueMediumTabGroup extends TabGroupAbstract
 		this.example = tab;
 		tabs = new Array();
 		populateArray();
-		
+
 		mainTab = new TextField();
 		mainTab.x = x;
 		mainTab.y = y + tab.getTextField().height;
@@ -52,11 +53,12 @@ class BlueMediumTabGroup extends TabGroupAbstract
 		mainTab.setTextFormat(txtFrmt);
 		mainTab.border = true;
 		mainTab.height = maxWidth/2;
-		mainTab.width = maxWidth-scrollButton;
+		mainTab.width = maxWidth;
 		mainTab.background = true;
 		mainTab.backgroundColor = backgroundTabColor;
+		mainTab.borderColor = lineColor;
 		mainSprite.addChild(mainTab);
-		
+
 		var i:Int = 1;
 		var iteratorTabs = tabs.iterator();
 		var iteratorData = tabModelsData.iterator();
@@ -65,36 +67,48 @@ class BlueMediumTabGroup extends TabGroupAbstract
 			var data = iteratorData.next();
 			var tab:TextField = iteratorTabs.next().getTextField();
 			tab.text = data.getTabName();
-		
+
 			tab.addEventListener(MouseEvent.CLICK, function(event:MouseEvent)
 			{
 				changeTextOfMainTab(data.getTabContent(), cast(event.target, TextField));
-				if (mainTab.maxScrollV >= mainTab.scrollV && mainTab.maxScrollV != 1) 
+				if (mainTab.maxScrollV >= mainTab.scrollV && mainTab.maxScrollV != 1)
 				{
-					var scroll:ScrollBar = new ScrollBar(mainTab);
-					rectOuter = scroll.getRectOuter();
-					rectInnerBox = scroll.getRectInner();
-				} 
-				else 
+					var scrollBarV:ScrollBarV = new ScrollBarV(mainTab, scrollButton);
+					rectOuterV = scrollBarV.getRectOuter();
+					rectInnerBoxV = scrollBarV.getRectInner();
+				}
+				else
 				{
-					mainTab.parent.removeChild(rectInnerBox);
-					mainTab.parent.removeChild(rectOuter);
+					mainTab.parent.removeChild(rectInnerBoxV);
+					//mainTab.parent.removeChild(rectOuterV);
+				}
+				
+				if (mainTab.maxScrollH >= mainTab.scrollH && mainTab.maxScrollH != 1)
+				{
+					var scrollBarH:ScrollBarH = new ScrollBarH(mainTab, scrollButton);
+					rectOuterH = scrollBarH.getRectOuter();
+					rectInnerBoxH = scrollBarH.getRectInner();
+				}
+				else
+				{
+					mainTab.parent.removeChild(rectInnerBoxH);
+					//mainTab.parent.removeChild(rectOuterH);
 				}
 			});
 			mainSprite.addChild(tab);
 			++i;
 		}
-		
-		
+
 	}
-	
-	
-	private function changeTextOfMainTab(text:String, field:TextField):Void{
+
+	private function changeTextOfMainTab(text:String, field:TextField):Void
+	{
 		mainTab.replaceText(0, mainTab.text.length, text);
 		changeColorForTabLater(field);
 	}
 
-	private function changeColorForTabLater(tab:TextField){
+	private function changeColorForTabLater(tab:TextField)
+	{
 		tab.backgroundColor = backgroundTabColor;
 		if (previousTab != null && previousTab != tab)
 		{

@@ -1,6 +1,6 @@
 package com.theproductengine.model.tabgroup;
 
-import com.theproductengine.scrollbar.ScrollBar;
+import com.theproductengine.scrollbar.ScrollBarV;
 import com.theproductengine.ui.Tab;
 import openfl.display.Sprite;
 import openfl.text.TextField;
