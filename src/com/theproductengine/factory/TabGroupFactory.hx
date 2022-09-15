@@ -1,4 +1,5 @@
 package com.theproductengine.factory;
+import com.theproductengine.model.TabModel;
 import com.theproductengine.model.tabgroup.TabGroupAbstract;
 import com.theproductengine.model.tabgroup.impl.BlueMediumTabGroup;
 import com.theproductengine.model.tabgroup.impl.GreyMinimizedTabGroup;
@@ -26,11 +27,11 @@ class TabGroupFactory
 	private var borderTab:Bool = true;
 	private var txtFrmt:TextFormat = new TextFormat();
 	
-	private var length:Int;
-
-	public function new(length:Int) 
+	private var tabModelsData:Array<TabModel>;
+	
+	public function new(tabModelsData:Array<TabModel>) 
 	{
-		this.length = length;
+		this.tabModelsData = tabModelsData;
 	}
 	
 	public function getInstance(type:TabGroupType):TabGroupAbstract
@@ -54,12 +55,14 @@ class TabGroupFactory
 		switch (type) 
 		{
 			case TabGroupType.BLUE_MEDIUM:
-				return new BlueMediumTabGroup(offsetX, offsetY, clearence-5, example, length, maxWidth-(2*clearence));
+				return new BlueMediumTabGroup(offsetX, offsetY, clearence-5, example, tabModelsData, maxWidth-(2*clearence));
 			case TabGroupType.GRAY_MINIMIZED:
-				return new GreyMinimizedTabGroup(offsetX, offsetY, clearence-5, example, length, maxWidth-(2*clearence));
+				return new GreyMinimizedTabGroup(offsetX, offsetY, clearence-5, example, tabModelsData.length, maxWidth-(2*clearence));
 			default:
 				return null;
 		}
 	}
+	
+	
 	
 }

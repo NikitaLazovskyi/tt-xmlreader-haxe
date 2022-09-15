@@ -2,6 +2,7 @@ package com.theproductengine.model.tabgroup;
 
 import com.theproductengine.scrollbar.ScrollBar;
 import com.theproductengine.ui.Tab;
+import openfl.display.Sprite;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
 
@@ -13,15 +14,18 @@ abstract class TabGroupAbstract
 {
 	public var backgroundTabColor:Int;
 	
-	private var mainTab:TextField;
 	
 	private var amount:Int;
 	private var x:Float;
 	private var y:Float;
 	private var clearence:Float;
 	private var maxWidth:Float;
+	
+	private var mainTab:TextField;
 	private var example:Tab;
 	private var tabs:Array<Tab>;
+	
+	private var mainSprite:Sprite;
 	
 	public function getTabs():Array<Tab>
 	{
@@ -56,5 +60,10 @@ abstract class TabGroupAbstract
 			previousX = example.getTextField().x;
 		}
 
+	}
+	
+	public function getMainSprite():Sprite
+	{
+		return this.mainSprite;
 	}
 }
